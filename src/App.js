@@ -1,25 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import GameScreen from './ui/screens/game/game.screen';
+import GameProvider from './core/provider/game/provider';
 
+
+//react-router-dom pkg
+// Brave agINST localhost
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // Provider daten runter geben
+    <GameProvider>
+      <GameScreen />
+    </GameProvider>
   );
 }
 
 export default App;
+

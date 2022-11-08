@@ -1,0 +1,25 @@
+<xml> 
+   <xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="x`Mh@nNHRt*uc`Uhz]$V">number</variable>
+    <variable id="WK(zRvF~u6C]LJNo%(|J">max</variable>
+  </variables>
+  <block type="variables_get" id="9q[Jm*YRN{1^#GE68;X~" x="138" y="62">
+    <field name="VAR" id="WK(zRvF~u6C]LJNo%(|J">max</field>
+  </block>
+  <block type="variables_get" id="NqJgy1@b)x4xuhl1JL1v" x="413" y="113">
+    <field name="VAR" id="x`Mh@nNHRt*uc`Uhz]$V">number</field>
+  </block>
+  <block type="variables_set" id="gE.t$o?S:x@Q#{4Ulm*l" x="263" y="187">
+    <field name="VAR" id="x`Mh@nNHRt*uc`Uhz]$V">number</field>
+  </block>
+  <block type="variables_set" id=",w%bj@Vy~Nv%L,9D}#l_" x="313" y="288">
+    <field name="VAR" id="WK(zRvF~u6C]LJNo%(|J">max</field>
+  </block>
+  <block type="variables_set" id="#t;D%y4L}DxgBS!BO0v[" x="187" y="337">
+    <field name="VAR" id="x`Mh@nNHRt*uc`Uhz]$V">number</field>
+  </block>
+  <block type="infinite_loop" deletable="false" movable="true"></block> 
+  <block type="if_a_greater_b" deletable="false" movable="true"></block> 
+  <block type="read_in_number" deletable="false" movable="true"></block> 
+</xml>
