@@ -1,62 +1,99 @@
-import React, { Component, useState } from "react";
-import MyBlockly from './components/myblockly';
+/* eslint-disable camelcase */
+import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
-import ShowXml from "./components/showxml";
+import Spinner from 'react-bootstrap/Spinner';
+import MyBlockly from './components/myblockly';
+import Feedback from './components/feedback';
+import ShowCode from './components/showCode';
+import useGame from '../../../core/provider/game/use';
+import UnitTestGrader from '../../../core/utils/unit_test_grader';
+import useExercises from '../../../core/provider/exercises/use';
 
-function GameScreen(props) {
-    const [isGameMode, setGameMode] = useState(false);
+function GameScreen() {
+  const [isGameMode, setGameMode] = useState(true);
+  const [isLoading, setLoading] = useState(false);
+  const {
+    state: { pythonCodeString },
+    actions: { setFeedback },
+  } = useGame();
+  const {
+    state: { currentExerciseNumber, exerciseList },
+  } = useExercises();
 
-    const startGame = () => {
-        setGameMode(true);
-    };
-
-    const closeGame = () => {
-        setGameMode(false);
-    };
-
-    return (
-        <div className="App">
-            <Stack gap={3}>
-                <div className="bg-light border">
-                    <h1>Hello, React!</h1>
-                </div>
-                <div className="bg-light border">
-                    <Button onClick={() => startGame()}>Start Game</Button>
-                </div>
-                <div className="bg-light border">
-                    <Stack direction="horizontal" className="col-md-6 mx-auto" gap={3}>
-                        <div className="bg-light border">First item</div>
-                        <div className="bg-light border">
-                            <Card style={{ width: '400px', height: '600px' }}>
-                                <Card.Body>
-                                    <Card.Title>Exercise</Card.Title>
-                                    <Card.Text>
-                                        Write a program that infinitely takes numbers as input (one at a time) and then outputs if the number is even or odd and whether it is the current maximum.
-                                    </Card.Text>
-                                    <GameArea gameMode={isGameMode} />
-                                </Card.Body>
-                            </Card>
-                        </div>
-                        <div className="bg-light border"><ShowXml /></div>
-                    </Stack>
-                </div>
-                <div className="bg-light border">
-                    <Button onClick={() => closeGame()}>Close Game</Button>
-                </div>
-            </Stack>
-        </div>
+  const closeGame = async () => {
+    if (isLoading) {
+      return;
+    }
+    setLoading(true);
+    const result = await UnitTestGrader(
+      pythonCodeString,
+      exerciseList[currentExerciseNumber].unittest,
+      true,
     );
+    setFeedback(result);
+    setGameMode(false);
+    console.log(result);
+    setLoading(false);
+    console.log(currentExerciseNumber);
+  };
+
+  return (
+    <div className="App">
+      <Stack gap={3} className="game-area">
+        <Stack gab={3} direction="horizontal">
+          <div className="bg-light border blockly-card">
+            <Card>
+              <Card.Body>
+                {isLoading
+                  ? <div className="spinner"><Spinner animation="grow" /></div>
+                  : <GameArea gameMode={isGameMode} />}
+              </Card.Body>
+            </Card>
+          </div>
+          <div className="bg-light border info-card">
+            <Stack direction="vertical">
+              <div className="bg-light border">
+                <Card>
+                  <Card.Body>
+                    <Card.Title>Exercise</Card.Title>
+                    <Card.Text>
+                      {exerciseList[currentExerciseNumber].text}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+              <div className="bg-light border">
+                <Card>
+                  <Card.Body>
+                    {isLoading
+                      ? <div className="spinner"><Spinner animation="grow" /></div>
+                      : <ShowCode />}
+                  </Card.Body>
+                </Card>
+              </div>
+            </Stack>
+          </div>
+        </Stack>
+
+      </Stack>
+      {isGameMode
+        && (
+          <div className="bg-light border">
+            <Button onClick={() => closeGame()}>Submit Solution</Button>
+          </div>
+        )}
+    </div>
+  );
 }
 
 function GameArea(props) {
-    const gameMode = props.gameMode;
-    if (gameMode) {
-        return <MyBlockly />;
-    }
-
-    return <h1>Nothing</h1>;
+  // eslint-disable-next-line react/prop-types
+  const { gameMode } = props;
+  if (gameMode) {
+    return <MyBlockly />;
+  } return <Feedback />;
 }
 
-export default GameScreen 
+export default GameScreen;

@@ -1,3 +1,107 @@
 .blockly-workspace {
-  height: 300px;
+  height: 700px;
+  width: 950px;
+}
+.blockly-card {
+  height: 800px;
+  width: 1000px;
+}
+
+.success {
+  height: 700px;
+  width: 950px;
+}
+
+.info-card {
+  height: 800px;
+  width: 400px;
+}
+
+.game-area {
+    height: 800px;
+    width: 1450px;
+}
+
+* {
+  margin: 0;
+  padding: 0
+}
+
+body {
+  height: 100vh;
+  background-color: #590C69;
+  position: relative
+}
+
+.wrapper { 
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000
+}
+
+.wrapper a:nth-child(1) {
+  background-color: green
+}
+
+.wrapper a:nth-child(2) {
+  background-color: blue
+}
+
+.wrapper a:nth-child(3) {
+  background-color: purple
+}
+
+.wrapper a:nth-child(4) {
+  animation: 0.7s ease-out 0s 1 FadeIn;
+  transition: all 0.3s
+}
+
+.wrapper a:hover:nth-child(4) {
+  background-color: red
+}
+
+@keyframes FadeIn {
+  0% {
+      transform: rotate(0deg)
+  }
+
+  100% {
+      transform: rotate(360deg)
+  }
+}
+
+.hide {
+  position: absolute;
+  bottom: 0px !important;
+  z-index: -1;
+  transition: all 2s
+}
+
+.close-button-rotate {
+  transform:rotate(45deg);
+  
+}
+
+.wrapper a {
+  height: 30px;
+  width: 30px;
+  background: #000;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  margin: 2px
+}
+
+.spinner{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content:center;
+  margin: 0 auto;
 }
