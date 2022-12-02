@@ -110,64 +110,6 @@ function GameScreen() {
 
     </Container>
   );
-
-  /** return (
-    <div className="App">
-      <Stack gap={3} className="game-area">
-        <Stack gab={3} direction="horizontal">
-          <div className="bg-light border blockly-card">
-            <Card>
-              <Card.Body>
-                {isLoading
-                  ? <div className="spinner"><Spinner animation="grow" /></div>
-                  : <GameArea gameMode={isGameMode} />}
-              </Card.Body>
-            </Card>
-          </div>
-          <div className="bg-light border info-card">
-            <Stack direction="vertical">
-              <div className="bg-light border">
-                <Card>
-                  <Card.Body>
-                    {isGameMode
-                      ? <div />
-                      : <Button variant="outline-warning" onClick={()
-                        => tryAgain()}>Try again</Button>}
-                  </Card.Body>
-                </Card>
-              </div>
-              <div className="bg-light border">
-                <Card>
-                  <Card.Body>
-                    <Card.Title>Exercise</Card.Title>
-                    <Card.Text>
-                      {exerciseList[currentExerciseNumber].text}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </div>
-              <div className="bg-light border show-code">
-                <Card>
-                  <Card.Body>
-                    {isLoading
-                      ? <div className="spinner"><Spinner animation="grow" /></div>
-                      : <ShowCode />}
-                  </Card.Body>
-                </Card>
-              </div>
-            </Stack>
-          </div>
-        </Stack>
-
-      </Stack>
-      {isGameMode
-        && (
-          <div className="bg-light border">
-            <Button onClick={() => closeGame()}>Submit Solution</Button>
-          </div>
-        )}
-    </div>
-  ); */
 }
 
 function GameArea(props) {
