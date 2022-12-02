@@ -1,24 +1,94 @@
-.blockly-workspace {
-  height: 700px;
-  width: 950px;
+/* xs */
+@media screen and (max-width: 576px) {
+  .blockly-workspace {
+    height: 650px;
+    width: 300px;
+  }
 }
+
+/* sm */
+@media screen and (min-width: 578px) and (max-width: 768px) {
+  .blockly-workspace {
+    height: 650px;
+    width: 520px;
+  }
+}
+
+/* sm-md */
+@media screen and (min-width: 769px) and (max-width: 890px) {
+  .blockly-workspace {
+    height: 650px;
+    width: 700px;
+  }
+}
+
+/* md */
+@media screen and (min-width: 891px) and (max-width: 992px) {
+  .blockly-workspace {
+    height: 650px;
+    width: 820px;
+  }
+}
+
+/* md-lg */
+@media screen and (min-width: 993px) and (max-width: 1100px) {
+  .blockly-workspace {
+    height: 650px;
+    width: 920px;
+  }
+}
+
+
+/* lg */
+@media screen and (min-width: 1101px) and (max-width: 1200px) {
+  .blockly-workspace {
+    height: 650px;
+    width: 1050px;
+  }
+}
+
+
+
+/* xl */
+@media screen and (min-width: 1201px) and (max-width: 1400px) {
+  .blockly-workspace {
+    height: 650px;
+    width: 750px;
+  }
+}
+
+/* xxl */
+@media screen and (min-width: 1401px) {
+  .blockly-workspace {
+    height: 650px;
+    width: 890px;
+  }
+}
+
+
+
 .blockly-card {
-  height: 800px;
+  height: 770px;
   width: 1000px;
 }
 
+.show-code {
+  height: 550px;
+  width: 400px;
+}
+
 .success {
-  height: 700px;
+  height: 670px;
   width: 950px;
 }
 
 .info-card {
-  height: 800px;
+  height: 770px;
   width: 400px;
 }
 
 .game-area {
-    height: 800px;
+    height: 720px;
     width: 1450px;
 }
 
@@ -41,7 +111,7 @@ body {
 }
 
 .wrapper a:nth-child(1) {
-  background-color: green
+  background-color: white 
 }
 
 .wrapper a:nth-child(2) {

@@ -12,7 +12,7 @@ function ShowCode() {
       {' '}
       <div><LanguageSwitch /></div>
       <div>
-        <pre id="highlighting" aria-hidden="true" style={{ height: '500px', width: '350px' }}>
+        <pre id="highlighting" aria-hidden="true">
           <SyntaxHighlighter showLineNumbers="true" language="python" style={docco}>
             {pythonNotJS ? pythonCodeString : javascriptCodeString}
           </SyntaxHighlighter>

@@ -1,8 +1,10 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Stack from 'react-bootstrap/Stack';
 import Spinner from 'react-bootstrap/Spinner';
 import MyBlockly from './components/myblockly';
 import Feedback from './components/feedback';
@@ -34,12 +36,82 @@ function GameScreen() {
     );
     setFeedback(result);
     setGameMode(false);
-    console.log(result);
     setLoading(false);
-    console.log(currentExerciseNumber);
+  };
+
+  const tryAgain = async () => {
+    setGameMode(true);
   };
 
   return (
+    <Container fluid className="App">
+      <Row>
+        <Col xs={{ order: 'last' }} sm={{ order: 'last' }} md={{ order: 'last' }} lg={{ order: 'last' }} xl={8} xxl={8}>
+          <Row>
+            <Container>
+              <Card>
+                <Card.Body>
+                  {isLoading
+                    ? <div className="spinner"><Spinner animation="grow" /></div>
+                    : <GameArea gameMode={isGameMode} />}
+                </Card.Body>
+              </Card>
+            </Container>
+          </Row>
+          {isGameMode
+        && (
+          <Row>
+            <Container>
+              <Card>
+                <Card.Body>
+                  <Button onClick={() => closeGame()}>Submit Solution</Button>
+                </Card.Body>
+              </Card>
+            </Container>
+          </Row>
+        )}
+        </Col>
+        <Col xl={4} xxl={4}>
+          <Container fluid>
+            <Row>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Exercise</Card.Title>
+                  <Card.Text>
+                    {exerciseList[currentExerciseNumber].text}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Row>
+            <Row>
+              <Card>
+                <Card.Body>
+                  {isLoading
+                    ? <div className="spinner"><Spinner animation="grow" /></div>
+                    : <ShowCode />}
+                </Card.Body>
+              </Card>
+            </Row>
+            {isGameMode
+              ? <div />
+              : (
+                <Row>
+                  <Card>
+                    <Card.Body>
+                      <Button variant="outline-warning" onClick={() => tryAgain()}>Try again</Button>
+                      {' '}
+                    </Card.Body>
+                  </Card>
+                </Row>
+              )}
+          </Container>
+        </Col>
+      </Row>
+
+    </Container>
+  );
+
+  /** return (
     <div className="App">
       <Stack gap={3} className="game-area">
         <Stack gab={3} direction="horizontal">
@@ -57,6 +129,16 @@ function GameScreen() {
               <div className="bg-light border">
                 <Card>
                   <Card.Body>
+                    {isGameMode
+                      ? <div />
+                      : <Button variant="outline-warning" onClick={()
+                        => tryAgain()}>Try again</Button>}
+                  </Card.Body>
+                </Card>
+              </div>
+              <div className="bg-light border">
+                <Card>
+                  <Card.Body>
                     <Card.Title>Exercise</Card.Title>
                     <Card.Text>
                       {exerciseList[currentExerciseNumber].text}
@@ -64,7 +146,7 @@ function GameScreen() {
                   </Card.Body>
                 </Card>
               </div>
-              <div className="bg-light border">
+              <div className="bg-light border show-code">
                 <Card>
                   <Card.Body>
                     {isLoading
@@ -85,7 +167,7 @@ function GameScreen() {
           </div>
         )}
     </div>
-  );
+  ); */
 }
 
 function GameArea(props) {
