@@ -29,14 +29,22 @@ function GameScreen() {
       return;
     }
     setLoading(true);
-    const result = await UnitTestGrader(
-      pythonCodeString,
-      exerciseList[currentExerciseNumber].unittest,
-      true,
-    );
-    setFeedback(result);
-    setGameMode(false);
-    setLoading(false);
+    const exercisesFound = exerciseList.filter((e) => e.number === currentExerciseNumber);
+    if (exercisesFound.length === 1) {
+      const filename = exercisesFound[0].unittest;
+      fetch(filename)
+        .then((r) => r.text())
+        .then(async (unittest) => {
+          const result = await UnitTestGrader(
+            pythonCodeString,
+            unittest,
+            true,
+          );
+          setFeedback(result);
+          setGameMode(false);
+          setLoading(false);
+        });
+    }
   };
 
   const tryAgain = async () => {
@@ -71,7 +79,7 @@ function GameScreen() {
           </Row>
         )}
         </Col>
-        <Col xl={4} xxl={4}>
+        <Col xl={{ order: 'last' }} xxl={{ order: 'last' }}>
           <Container fluid>
             <Row>
               <Card>

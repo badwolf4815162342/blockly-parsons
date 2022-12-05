@@ -1,14 +1,7 @@
 # import OS module
 import os, sys
 import xml.etree.ElementTree as ET
-
-
-#/* eslint-disable max-len */
-#// start positioning
-#// "bock " -> "block editable="false" deletable="false" "
-#// "shadow " -> "shadow editable="false" "
-#// x="0" -> y="height+20"
-# underblocks movable="false"
+import json
  
 # Get the list of all files and directories
 path = "./original_xml"
@@ -21,16 +14,15 @@ print(dir_list)
 
 for filename in dir_list:
     f = open('./original_xml/'+filename, "r")
-    # print(f.read())
     original_xml = f.read()
-    f = open('./transformed_xml/'+filename, "w")
+    f = open('./xml/'+filename, "w")
     f.write(original_xml.replace('`','-'))
     f.close()
 
     #original_xml.replace("bock ", "block editable="false" deletable="false" ")
     #original_xml.replace("shadow ", "shadow editable="false" ")
 
-    mytree = ET.parse('./transformed_xml/'+filename)
+    mytree = ET.parse('./xml/'+filename)
     myroot = mytree.getroot()
     counter1 = 0
     count = 0
@@ -70,11 +62,12 @@ for filename in dir_list:
     print(counter1)
     print(counter2)
 
-    mytree.write('./transformed_xml/'+filename)
-    f = open('./transformed_xml/'+filename, "r")
+    mytree.write('./xml/'+filename)
+    transformed_f = open('./xml/'+filename, "r")
     # print(f.read())
-    original_xml = f.read()
-    javascript = '/* eslint-disable camelcase */\nconst '+ filename.replace('.xml','')+'_blocklibrary = `' + original_xml.replace('ns0:','').replace(':ns0','') + '`;\n\nexport default '+filename.replace('.xml','')+'_blocklibrary;\n'
-    f = open('./blocklibraries/'+filename.replace('xml','js'), "w")
-    f.write(javascript)
-    f.close()
+    transformed_xml = transformed_f.read()
+    transformed_f.close()
+    final_xml = transformed_xml.replace('ns0:','').replace(':ns0','')
+    transformed_f = open('./xml/'+filename, "w")
+    transformed_f.write(final_xml)
+    transformed_f.close()

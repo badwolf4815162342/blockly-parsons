@@ -34,20 +34,22 @@
   <block type="variables_set" id="b].`Ljv%,9D{wOmJUjX$" x="70" y="220">
     <field name="VAR" id="*WRXg(7L]e[)*Um~GG2W">mod</field>
     <value name="VALUE">
-      <block type="math_arithmetic" id="T4A[R6y+ZI9?/^FgOrf0">
-        <field name="OP">DIVIDE</field>
-        <value name="A">
-          <shadow type="math_number" id="t9X|));3KwXWo9_5BbeJ">
-            <field name="NUM">1</field>
+      <block type="math_modulo" id="fyklFiFOb38UB%d=NMd}">
+        <value name="DIVIDEND">
+          <shadow type="math_number" id="9i}9nwr.OZQJcHrF[D^;">
+            <field name="NUM">64</field>
           </shadow>
           <block type="variables_get" id="$iInkV13gjpBrOI{WS?,">
             <field name="VAR" id="`qP@.l`6=o4ueSGWh2+h">input_num</field>
           </block>
         </value>
-        <value name="B">
-          <shadow type="math_number" id="Qul$($m?l7WN4:@ti?l1">
-            <field name="NUM">2</field>
+        <value name="DIVISOR">
+          <shadow type="math_number" id="+@eDj~rNe](wLkd#7S~]">
+            <field name="NUM">10</field>
           </shadow>
+          <block type="math_number" id="sn{TQM%X;hQ%}Rr88X4r">
+            <field name="NUM">2</field>
+          </block>
         </value>
       </block>
     </value>

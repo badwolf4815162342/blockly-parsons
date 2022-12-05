@@ -1,6 +1,6 @@
 function Failure() {
   return (
-    <div className="alert alert-warning warning" role="alert" height="100%">
+    <div className="alert alert-warning blockly-workspace" role="alert" height="100%">
       <h4 className="alert-heading">Not quite ...</h4>
       <p />
       <p className="mb-0">Try again?</p>

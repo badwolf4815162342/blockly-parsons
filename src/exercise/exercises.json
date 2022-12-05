@@ -1,0 +1,36 @@
+{
+    "exercises": [
+        {
+            "number": 0,
+            "name": "Find even or odd and maximum in list.",
+            "baseXmlFile": "/exercises/xml/find_max_and_even_odd.xml",
+            "unittestFile": "/exercises/unittest/find_max_and_even_odd.txt",
+            "trys": 0,
+            "text": "Write a program that takes numbers of a list and firstly outputs if the number is even or odd and afterwards whether it is the current maximum."
+        },
+        {
+            "number": 1,
+            "name": "Guessing game.",
+            "baseXmlFile": "/exercises/xml/guessing_game.xml",
+            "unittestFile": "/exercises/unittest/guessing_game.txt",
+            "trys": 0,
+            "text": "The problem sets a guess number (in this case 7) and a list of input values and checks for this list of guesses if it matches the guess number. It also gives feedback if the inputs are too loe or two high and finishes when the value -1 is found in the list of inputs."
+        },
+        {
+            "number": 2,
+            "name": "Even or odd.",
+            "baseXmlFile": "/exercises/xml/even_odd.xml",
+            "unittestFile": "/exercises/unittest/even_odd.txt",
+            "trys": 0,
+            "text": "Report wether an input number is even or odd."
+        },
+        {
+            "number": 3,
+            "name": "Reverse word and wordlist.",
+            "baseXmlFile": "/exercises/xml/reverse_word_and_wordlist.xml",
+            "unittestFile": "/exercises/unittest/reverse_word_and_wordlist.txt",
+            "trys": 0,
+            "text": "Given an array of whords which make up sentence, generate and print out a new array with the words in reverse order and each word eversed."
+        }
+    ]
+}

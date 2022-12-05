@@ -7,10 +7,13 @@ import React, { useState } from 'react';
 import { BlocklyWorkspace } from 'react-blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 import { pythonGenerator } from 'blockly/python';
+import Spinner from 'react-bootstrap/Spinner';
 import useGame from '../../../../core/provider/game/use';
 import useExercises from '../../../../core/provider/exercises/use';
 
 export default function MyBlockly() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [initialXml, setInitialXml] = useState('');
   const [seed, setSeed] = useState(1);
   const reset = () => {
     setSeed(Math.random());
@@ -32,8 +35,16 @@ export default function MyBlockly() {
     state: { exerciseList, currentExerciseNumber },
   } = useExercises();
 
-  console.log(exerciseList[0].baseXml);
-  const initialXml = exerciseList[currentExerciseNumber].baseXml;
+  const xmls = exerciseList.filter((e) => e.number === currentExerciseNumber);
+  if (xmls.length === 1) {
+    const filename = xmls[0].baseXml;
+    fetch(filename)
+      .then((r) => r.text())
+      .then((xml) => {
+        setInitialXml(xml);
+        setIsLoading(false);
+      });
+  }
 
   function workspaceDidChange(workspace) {
     const codePy = pythonGenerator.workspaceToCode(
@@ -72,24 +83,25 @@ export default function MyBlockly() {
           <i className="fa fa-plus" />
         </a>
       </div>
-      <BlocklyWorkspace
-        key={seed}
-        className="blockly-workspace"
+      {(isLoading) ? (<div className="spinner"><Spinner animation="grow" /></div>) : (
+        <BlocklyWorkspace
+          key={seed}
+          className="blockly-workspace"
       // toolboxConfiguration={toolboxCategories} // this must be a JSON toolbox definition
-        initialXml={initialXml}
+          initialXml={initialXml}
     //  onXmlChange={setSubmittedXml}
-        onWorkspaceChange={workspaceDidChange}
-        workspaceConfiguration={{
-          scrollbars: false,
-          grid: {
-            spacing: 20,
-            length: 3,
-            colour: '#ccc',
-            snap: true,
-          },
-        }}
-      />
+          onWorkspaceChange={workspaceDidChange}
+          workspaceConfiguration={{
+            scrollbars: false,
+            grid: {
+              spacing: 20,
+              length: 3,
+              colour: '#ccc',
+              snap: true,
+            },
+          }}
+        />
+      )}
     </div>
-
   );
 }

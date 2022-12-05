@@ -1,5 +1,4 @@
-/* eslint-disable camelcase */
-const find_max_and_even_odd_blocklibrary = `<xml xmlns="https://developers.google.com/blockly/xml">
+<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="{.n;O~gc/tvR;8@4T-vp">max</variable>
     <variable id="LuF?A4Fzu-=.3oy$+$tn">list</variable>
@@ -160,6 +159,4 @@ const find_max_and_even_odd_blocklibrary = `<xml xmlns="https://developers.googl
       </block>
     </value>
   </block>
-</xml>`;
-
-export default find_max_and_even_odd_blocklibrary;
+</xml>

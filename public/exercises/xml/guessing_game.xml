@@ -1,5 +1,4 @@
-/* eslint-disable camelcase */
-const guessing_game_blocklibrary = `<xml xmlns="https://developers.google.com/blockly/xml">
+<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="hw=bdEu-as$UkcyU$o:.">counter</variable>
     <variable id="ryq}yoSm|-xaO3V0X7)W">guess</variable>
@@ -269,6 +268,4 @@ const guessing_game_blocklibrary = `<xml xmlns="https://developers.google.com/bl
       </block>
     </value>
   </block>
-</xml>`;
-
-export default guessing_game_blocklibrary;
+</xml>

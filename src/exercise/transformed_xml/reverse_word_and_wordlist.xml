@@ -2,9 +2,9 @@
   <ns0:variables>
     <ns0:variable id=",,M%_MG6[oi^RPyD@/4$">word</ns0:variable>
     <ns0:variable id=")B5|ts8+:qg}H!QNdPS#">letter</ns0:variable>
+    <ns0:variable id="o*Q}|h3u5}krYFceD*S#">new_words</ns0:variable>
     <ns0:variable id="H|faJeHkeC=j(3_6^s8k">new_word</ns0:variable>
     <ns0:variable id="/H0zamS-3CFEiqhRxwqr">words</ns0:variable>
-    <ns0:variable id="o*Q}|h3u5}krYFceD*S#">new_words</ns0:variable>
   </ns0:variables>
   <ns0:block type="group_title" id="wkWP8Td7$H4Jj$,%:9;J" x="37" y="38" editable="false" deletable="false" movable="false">
     <ns0:value name="TEXT">
@@ -75,8 +75,8 @@
   <ns0:block type="variables_set" id="WG4$t:rP$ADw0VsGN=kB" x="313" y="363" editable="false" deletable="false">
     <ns0:field name="VAR" id="H|faJeHkeC=j(3_6^s8k">new_word</ns0:field>
     <ns0:value name="VALUE">
-      <ns0:block type="text" id="n.{Xjb7Xn-o1=GUASU1l" movable="false" editable="false" deletable="false">
-        <ns0:field name="TEXT" />
+      <ns0:block type="variables_get" id="KMQ([Tb]?d1xG~io[okv" movable="false" editable="false" deletable="false">
+        <ns0:field name="VAR" id=")B5|ts8+:qg}H!QNdPS#">letter</ns0:field>
       </ns0:block>
     </ns0:value>
   </ns0:block>
@@ -88,6 +88,14 @@
       </ns0:shadow>
       <ns0:block type="variables_get" id="t!uQ-xypZ)0H_0dma6Es" movable="false" editable="false" deletable="false">
         <ns0:field name="VAR" id="H|faJeHkeC=j(3_6^s8k">new_word</ns0:field>
+      </ns0:block>
+    </ns0:value>
+  </ns0:block>
+  <ns0:block type="variables_set" id=".mbPW@r^BB:cg}Sy-D{V" x="163" y="412" editable="false" deletable="false">
+    <ns0:field name="VAR" id="H|faJeHkeC=j(3_6^s8k">new_word</ns0:field>
+    <ns0:value name="VALUE">
+      <ns0:block type="text" id="5VkNz{VXH97m[vE(*7,4" movable="false" editable="false" deletable="false">
+        <ns0:field name="TEXT" />
       </ns0:block>
     </ns0:value>
   </ns0:block>

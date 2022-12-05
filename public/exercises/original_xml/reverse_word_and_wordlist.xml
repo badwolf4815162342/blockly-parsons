@@ -2,9 +2,9 @@
   <variables>
     <variable id=",,M%_MG6[oi^RPyD@/4$">word</variable>
     <variable id=")B5|ts8+:qg}H!QNdPS#">letter</variable>
+    <variable id="o*Q}|h3u5}krYFceD*S#">new_words</variable>
     <variable id="H|faJeHkeC=j(3_6^s8k">new_word</variable>
     <variable id="/H0zamS`3CFEiqhRxwqr">words</variable>
-    <variable id="o*Q}|h3u5}krYFceD*S#">new_words</variable>
   </variables>
   <block type="text_print" id="wkWP8Td7$H4Jj$,%:9;J" x="37" y="38">
     <value name="TEXT">
@@ -75,8 +75,8 @@
   <block type="variables_set" id="WG4$t:rP$ADw0VsGN=kB" x="313" y="363">
     <field name="VAR" id="H|faJeHkeC=j(3_6^s8k">new_word</field>
     <value name="VALUE">
-      <block type="text" id="n.{Xjb7Xn-o1=GUASU1l">
-        <field name="TEXT"></field>
+      <block type="variables_get" id="KMQ([Tb]?d1xG~io[okv">
+        <field name="VAR" id=")B5|ts8+:qg}H!QNdPS#">letter</field>
       </block>
     </value>
   </block>
@@ -88,6 +88,14 @@
       </shadow>
       <block type="variables_get" id="t!uQ`xypZ)0H_0dma6Es">
         <field name="VAR" id="H|faJeHkeC=j(3_6^s8k">new_word</field>
+      </block>
+    </value>
+  </block>
+  <block type="variables_set" id=".mbPW@r^BB:cg}Sy-D{V" x="163" y="412">
+    <field name="VAR" id="H|faJeHkeC=j(3_6^s8k">new_word</field>
+    <value name="VALUE">
+      <block type="text" id="5VkNz{VXH97m[vE(*7,4">
+        <field name="TEXT"></field>
       </block>
     </value>
   </block>
