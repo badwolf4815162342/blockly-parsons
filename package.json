@@ -1,6 +1,5 @@
 {
-  "homepage": "http://badwolf4815162342.github.io/blockly-parsons-prod",
-  "name": "blockly-parsons",
+  "name": "blocdzju",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

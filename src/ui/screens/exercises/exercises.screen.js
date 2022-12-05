@@ -28,7 +28,7 @@ function ExercisesScreen() {
               {exerciseList.map((exercise) => (
                 <li key={exercise.number}>
                   <div className="bg-light border">
-                    <Link onClick={() => selectExercise(exercise.number)} to="/gamescreen">{exercise.name}</Link>
+                    <Link onClick={() => selectExercise(exercise.number)} to="gamescreen">{exercise.name}</Link>
                   </div>
                 </li>
               ))}

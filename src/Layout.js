@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 function Layout() {
   const handleLogout = () => {
     localStorage.clear();
-    window.location.pathname = '/';
+    window.location.assign('/');
   };
 
   const isAuthenticated = localStorage.getItem('isAuthenticated');
@@ -15,8 +15,8 @@ function Layout() {
       <h1>
         <nav>
           <Link to="/">🏠</Link>
-          <Link to="/login">☃️</Link>
-          <Link to="/admin">👩🏾‍💻</Link>
+          <Link to="login">☃️</Link>
+          <Link to="admin">👩🏾‍💻</Link>
           {isAuthenticated
 && <Button className="btn btn-primary" onClick={handleLogout}>Logout</Button>}
 

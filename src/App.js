@@ -1,6 +1,6 @@
 import './App.css';
 import {
-  BrowserRouter, Routes, Route,
+  Routes, Route, BrowserRouter,
 } from 'react-router-dom';
 import GameScreen from './ui/screens/game/game.screen';
 import GameProvider from './core/provider/game/provider';

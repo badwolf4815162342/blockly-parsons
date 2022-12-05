@@ -15,20 +15,20 @@ import useExercises from '../../../core/provider/exercises/use';
 
 function GameScreen() {
   const [isGameMode, setGameMode] = useState(true);
-  const [isLoading, setLoading] = useState(false);
+  const [isLoadingGame, setLoadingGame] = useState(false);
   const {
     state: { pythonCodeString },
     actions: { setFeedback },
   } = useGame();
   const {
-    state: { currentExerciseNumber, exerciseList },
+    state: { isLoading, currentExerciseNumber, exerciseList },
   } = useExercises();
 
   const closeGame = async () => {
-    if (isLoading) {
+    if (isLoadingGame) {
       return;
     }
-    setLoading(true);
+    setLoadingGame(true);
     const exercisesFound = exerciseList.filter((e) => e.number === currentExerciseNumber);
     if (exercisesFound.length === 1) {
       const filename = exercisesFound[0].unittest;
@@ -42,7 +42,7 @@ function GameScreen() {
           );
           setFeedback(result);
           setGameMode(false);
-          setLoading(false);
+          setLoadingGame(false);
         });
     }
   };
@@ -59,7 +59,7 @@ function GameScreen() {
             <Container>
               <Card>
                 <Card.Body>
-                  {isLoading
+                  {isLoadingGame
                     ? <div className="spinner"><Spinner animation="grow" /></div>
                     : <GameArea gameMode={isGameMode} />}
                 </Card.Body>
@@ -86,7 +86,11 @@ function GameScreen() {
                 <Card.Body>
                   <Card.Title>Exercise</Card.Title>
                   <Card.Text>
-                    {exerciseList[currentExerciseNumber].text}
+                    {(isLoading)
+                      ? <div className="spinner"><Spinner animation="grow" /></div>
+                      : (
+                        exerciseList[currentExerciseNumber].text
+                      )}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -94,7 +98,7 @@ function GameScreen() {
             <Row>
               <Card>
                 <Card.Body>
-                  {isLoading
+                  {isLoadingGame
                     ? <div className="spinner"><Spinner animation="grow" /></div>
                     : <ShowCode />}
                 </Card.Body>

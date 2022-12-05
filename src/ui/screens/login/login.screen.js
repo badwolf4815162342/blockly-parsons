@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 // import { useDispatch } from 'react-redux';
-// import { useHistory } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 function Login() {
   const [userData, setUserData] = useState({ username: '', password: '' });
   const [errorMessage, setErrorMessage] = useState({ value: '' });
+  const [redirectToReferrer, setRedirectToReferrer] = useState(false);
+
   // const history = useHistory();
   console.log('auth', localStorage.getItem('isAuthenticated'));
 
@@ -17,6 +19,8 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(userData.username);
+    console.log(userData.password);
     // if username or password field is empty, return error message
     if (userData.username === '' || userData.password === '') {
       setErrorMessage(() => ({
@@ -25,14 +29,21 @@ function Login() {
     } else if (userData.username === 'admin' && userData.password === '123456') {
       // Signin Success
       localStorage.setItem('isAuthenticated', 'true');
-      window.location.pathname = '/admin';
+      setRedirectToReferrer(true);
     } else {
       // If credentials entered is invalid
       setErrorMessage(() => ({ value: 'Invalid username/password' }));
     }
   };
 
+  if (redirectToReferrer) {
+    return (
+      <Navigate to="/admin" />
+    );
+  }
+
   return (
+
     <div className="text-center">
       <h1>Signin User</h1>
       <form
