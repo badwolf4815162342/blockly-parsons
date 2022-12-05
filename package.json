@@ -1,5 +1,6 @@
 {
-  "name": "blocdzju",
+  "homepage": "blockly-parsons-prod",
+  "name": "blockly-parsons",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

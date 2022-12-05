@@ -38,6 +38,7 @@ export default function MyBlockly() {
   const xmls = exerciseList.filter((e) => e.number === currentExerciseNumber);
   if (xmls.length === 1) {
     const filename = xmls[0].baseXml;
+    console.log(filename);
     fetch(filename)
       .then((r) => r.text())
       .then((xml) => {

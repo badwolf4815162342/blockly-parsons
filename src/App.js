@@ -1,6 +1,6 @@
 import './App.css';
 import {
-  Routes, Route, BrowserRouter,
+  Routes, Route, HashRouter,
 } from 'react-router-dom';
 import GameScreen from './ui/screens/game/game.screen';
 import GameProvider from './core/provider/game/provider';
@@ -15,7 +15,7 @@ export default function App() {
   return (
     <ExercisesProvider>
       <GameProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Exercises />} />
@@ -33,7 +33,7 @@ export default function App() {
               <Route path="*" element={<NoPage />} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </GameProvider>
     </ExercisesProvider>
   );
