@@ -8,6 +8,7 @@ import { BlocklyWorkspace } from 'react-blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 import { pythonGenerator } from 'blockly/python';
 import Spinner from 'react-bootstrap/Spinner';
+import Button from 'react-bootstrap/Button';
 import useGame from '../../../../core/provider/game/use';
 import useExercises from '../../../../core/provider/exercises/use';
 
@@ -43,6 +44,7 @@ export default function MyBlockly() {
       .then((r) => r.text())
       .then((xml) => {
         setInitialXml(xml);
+        console.log(initialXml);
         setIsLoading(false);
       });
   }
@@ -79,10 +81,9 @@ export default function MyBlockly() {
     <div>
       {' '}
       <div className="wrapper">
-        <a onClick={reset} href="#">
+        <Button onClick={reset} className="fa fa-plus">
           🔄
-          <i className="fa fa-plus" />
-        </a>
+        </Button>
       </div>
       {(isLoading) ? (<div className="spinner"><Spinner animation="grow" /></div>) : (
         <BlocklyWorkspace

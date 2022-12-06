@@ -10,6 +10,7 @@
     "blockly": "^9.0.1",
     "bootstrap": "^5.2.2",
     "eslint": "^7.32.0 || ^8.2.0",
+    "html-react-parser": "^3.0.4",
     "react": "^18.2.0",
     "react-blockly": "^7.0.1",
     "react-bootstrap": "^2.6.0",

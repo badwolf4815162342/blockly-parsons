@@ -30,6 +30,7 @@ function Login() {
       // Signin Success
       localStorage.setItem('isAuthenticated', 'true');
       setRedirectToReferrer(true);
+      window.dispatchEvent(new Event('storage'));
     } else {
       // If credentials entered is invalid
       setErrorMessage(() => ({ value: 'Invalid username/password' }));

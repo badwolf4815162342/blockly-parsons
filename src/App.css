@@ -110,7 +110,7 @@ body {
   z-index: 1000
 }
 
-.wrapper a:nth-child(1) {
+.wrapper  {
   background-color: white 
 }
 
@@ -153,7 +153,7 @@ body {
   
 }
 
-.wrapper a {
+.wrapper {
   height: 30px;
   width: 30px;
   background: #000;

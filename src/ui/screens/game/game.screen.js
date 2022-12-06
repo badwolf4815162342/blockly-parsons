@@ -6,8 +6,10 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
+import parse from 'html-react-parser';
 import MyBlockly from './components/myblockly';
 import Feedback from './components/feedback';
+
 import ShowCode from './components/showCode';
 import useGame from '../../../core/provider/game/use';
 import UnitTestGrader from '../../../core/utils/unit_test_grader';
@@ -79,8 +81,8 @@ function GameScreen() {
           </Row>
         )}
         </Col>
-        <Col xl={{ order: 'last' }} xxl={{ order: 'last' }}>
-          <Container fluid>
+        <Col xl={4} xxl={4}>
+          <Container>
             <Row>
               <Card>
                 <Card.Body>
@@ -89,7 +91,9 @@ function GameScreen() {
                     {(isLoading)
                       ? <div className="spinner"><Spinner animation="grow" /></div>
                       : (
-                        exerciseList[currentExerciseNumber].text
+                        <div>
+                          {parse(exerciseList[currentExerciseNumber].text)}
+                        </div>
                       )}
                   </Card.Text>
                 </Card.Body>
