@@ -81,7 +81,7 @@ export default function MyBlockly() {
     <div>
       {' '}
       <div className="wrapper">
-        <Button onClick={reset} className="fa fa-plus">
+        <Button onClick={reset} variant="success" className="fa fa-plus">
           🔄
         </Button>
       </div>

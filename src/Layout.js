@@ -29,14 +29,14 @@ function Layout() {
   }
 
   return (
-    <>
+    <div className="bg">
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand>Blockly Parsons</Navbar.Brand>
           <Navbar.Collapse className="justify-content-start">
             <Nav>
-              <Nav.Link><Link to="/">Exercises</Link></Nav.Link>
-              <Nav.Link><Link to="/admin">Admin</Link></Nav.Link>
+              <Nav.Link><Link class="nav-link" to="/">Exercises</Link></Nav.Link>
+              <Nav.Link><Link class="nav-link" to="/admin">Admin</Link></Nav.Link>
             </Nav>
           </Navbar.Collapse>
           {isLoggedIn
@@ -48,9 +48,13 @@ function Layout() {
 )}
         </Container>
       </Navbar>
-
+      <div
+        style={{
+          height: '15px',
+        }}
+      />
       <Outlet />
-    </>
+    </div>
   );
 }
 

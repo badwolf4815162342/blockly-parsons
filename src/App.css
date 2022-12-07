@@ -1,3 +1,25 @@
+:root {
+  --blue : #4285F4;
+  --lightblue : #aac6f3;
+  --red : #EA4335;
+  --yellow : #FBBC05;
+  --green : #34A853;
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+}
+
+.btn-custom {
+  background: red;
+  color: yellow;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+
 /* xs */
 @media screen and (max-width: 576px) {
   .blockly-workspace {
@@ -65,8 +87,6 @@
   }
 }
 
-
-
 .blockly-card {
   height: 770px;
   width: 1000px;
@@ -92,21 +112,11 @@
     width: 1450px;
 }
 
-* {
-  margin: 0;
-  padding: 0
-}
-
-body {
-  height: 100vh;
-  background-color: #590C69;
-  position: relative
-}
 
 .wrapper { 
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 40px;
   z-index: 1000
 }
 
@@ -114,21 +124,10 @@ body {
   background-color: white 
 }
 
-.wrapper a:nth-child(2) {
-  background-color: blue
-}
+.exercises {
+  padding-left: 100px;
+  padding-right: 100px;
 
-.wrapper a:nth-child(3) {
-  background-color: purple
-}
-
-.wrapper a:nth-child(4) {
-  animation: 0.7s ease-out 0s 1 FadeIn;
-  transition: all 0.3s
-}
-
-.wrapper a:hover:nth-child(4) {
-  background-color: red
 }
 
 @keyframes FadeIn {
@@ -141,31 +140,39 @@ body {
   }
 }
 
-.hide {
-  position: absolute;
-  bottom: 0px !important;
-  z-index: -1;
-  transition: all 2s
+.nav-link {
+  text-decoration: none; color: white;
 }
 
-.close-button-rotate {
-  transform:rotate(45deg);
-  
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:active { text-decoration: none;   }
+
+body, html {
+  height: 100%;
 }
+.bg {
+  background-image: url('image_2.png');
+  opacity: 0.9;
+  height: 150vh;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+
+
 
 .wrapper {
-  height: 30px;
-  width: 30px;
-  background: #000;
-  padding: 10px;
   display: flex;
   flex-direction: row;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: #fff;
-  margin: 2px
 }
 
 .spinner{

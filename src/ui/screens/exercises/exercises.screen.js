@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import Stack from 'react-bootstrap/Stack';
 import React from 'react';
 import Spinner from 'react-bootstrap/Spinner';
+import {
+  Card, Row, Col, Container,
+} from 'react-bootstrap';
 import useExercises from '../../../core/provider/exercises/use';
 
 function ExercisesScreen() {
@@ -18,21 +21,28 @@ function ExercisesScreen() {
   return (
     <div className="exercises-screen">
       <Stack gap={3}>
-        <div className="bg-light border">
-          <h1>Blockly-Parsons</h1>
-        </div>
+        <Container className="justify-content-center">
+          <h1>Exercises</h1>
+        </Container>
         {(isLoading)
           ? <div className="spinner"><Spinner animation="grow" /></div>
           : (
-            <ul>
+            <Row className="exercises">
               {exerciseList.map((exercise) => (
-                <li key={exercise.number}>
-                  <div className="bg-light border">
-                    <Link onClick={() => selectExercise(exercise.number)} to="gamescreen">{exercise.name}</Link>
-                  </div>
-                </li>
+                <Col key={exercise.number}>
+                  <Card>
+                    <Card.Body>
+                      <Card.Title>{exercise.name}</Card.Title>
+                      <Card.Text>
+                        <Link onClick={() => selectExercise(exercise.number)} to="gamescreen"><h1>▶️</h1></Link>
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
               ))}
-            </ul>
+
+            </Row>
+
           )}
 
       </Stack>
