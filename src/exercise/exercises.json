@@ -14,7 +14,7 @@
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/guessing_game.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/guessing_game.txt",
             "trys": 0,
-            "text": "First we set a <b>guess numbe</b> (in this case it is set to 7) and a <b>list of input values</b> and checks for this <b>list of guesses</b> if each value matches the guess number. It also gives <b>feedback</b> if the input is <b>too low</b> or <b>too high</b> and <b>finishes</b> when the value <b>-1</b> is found in the list of inputs."
+            "text": "First we set a <b>guess number</b> (in this case it is set to 7) and a <b>list of input values</b> and checks for this <b>list of guesses</b> if each value matches the guess number. It also gives <b>feedback</b> if the input is <b>too low</b> or <b>too high</b> and <b>finishes</b> when the value <b>-1</b> is found in the list of inputs."
         },
         {
             "number": 2,

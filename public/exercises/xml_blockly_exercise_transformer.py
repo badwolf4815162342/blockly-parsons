@@ -71,3 +71,20 @@ for filename in dir_list:
     transformed_f = open('./xml/'+filename, "w")
     transformed_f.write(final_xml)
     transformed_f.close()
+    # BasetitleXML
+    mytree = ET.parse('./xml/'+filename)
+    myroot = mytree.getroot()
+    for toplevelelement in myroot:
+        type = toplevelelement.attrib.get('type', None)
+        if type != 'group_title':
+            myroot.remove(toplevelelement)
+    mytree.write('./xml_titles/'+filename)
+    transformed_titles_f = open('./xml_titles/'+filename, "r")
+    transformed_titles_xml = transformed_titles_f.read()
+    transformed_titles_f.close()
+    final_xml_titles = transformed_titles_xml.replace('ns0:','').replace(':ns0','')
+    print(final_xml_titles)
+    transformed_titles_f = open('./xml_titles/'+filename, "w")
+    transformed_titles_f.write(final_xml_titles)
+    transformed_titles_f.close()
+

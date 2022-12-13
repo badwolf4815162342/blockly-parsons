@@ -1,4 +1,6 @@
-import { Link, Outlet, Navigate } from 'react-router-dom';
+import {
+  Link, Outlet, Navigate,
+} from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -35,8 +37,8 @@ function Layout() {
           <Navbar.Brand>Blockly Parsons</Navbar.Brand>
           <Navbar.Collapse className="justify-content-start">
             <Nav>
-              <Nav.Link><Link class="nav-link" to="/">Exercises</Link></Nav.Link>
-              <Nav.Link><Link class="nav-link" to="/admin">Admin</Link></Nav.Link>
+              <Nav.Link><Link className="nav-link" to="/">Exercises</Link></Nav.Link>
+              <Nav.Link><Link className="nav-link" to="/admin">Admin</Link></Nav.Link>
             </Nav>
           </Navbar.Collapse>
           {isLoggedIn
@@ -48,11 +50,13 @@ function Layout() {
 )}
         </Container>
       </Navbar>
+
       <div
         style={{
           height: '15px',
         }}
       />
+
       <Outlet />
     </div>
   );

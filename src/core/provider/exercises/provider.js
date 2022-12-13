@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react'; // useEffect()??
 import ExercisesContext from './context';
-
 import Exercises from '../../../exercise/exercises.json';
 
 // eslint-disable-next-line react/prop-types

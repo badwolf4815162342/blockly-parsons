@@ -7,12 +7,19 @@ import React, { useState } from 'react';
 import { BlocklyWorkspace } from 'react-blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 import { pythonGenerator } from 'blockly/python';
-import Spinner from 'react-bootstrap/Spinner';
-import Button from 'react-bootstrap/Button';
+import {
+  Stack, Button, Spinner, Card,
+} from 'react-bootstrap';
 import useGame from '../../../../core/provider/game/use';
 import useExercises from '../../../../core/provider/exercises/use';
 
-export default function MyBlockly() {
+export default function MyBlockly(props) {
+  // eslint-disable-next-line react/prop-types
+  const { showOnlyTitle } = props;
+  // eslint-disable-next-line react/prop-types
+  const { resetButton } = props;
+  // eslint-disable-next-line react/prop-types
+  const { setModalShow } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [initialXml, setInitialXml] = useState('');
   const [seed, setSeed] = useState(1);
@@ -38,7 +45,10 @@ export default function MyBlockly() {
 
   const xmls = exerciseList.filter((e) => e.number === currentExerciseNumber);
   if (xmls.length === 1) {
-    const filename = xmls[0].baseXml;
+    let filename = xmls[0].baseXml;
+    if (showOnlyTitle) {
+      filename = filename.replace('xml', 'xml_titles');
+    }
     console.log(filename);
     fetch(filename)
       .then((r) => r.text())
@@ -78,32 +88,41 @@ export default function MyBlockly() {
   }
 
   return (
-    <div>
-      {' '}
-      <div className="wrapper">
-        <Button onClick={reset} variant="success" className="fa fa-plus">
-          🔄
-        </Button>
-      </div>
-      {(isLoading) ? (<div className="spinner"><Spinner animation="grow" /></div>) : (
-        <BlocklyWorkspace
-          key={seed}
-          className="blockly-workspace"
-      // toolboxConfiguration={toolboxCategories} // this must be a JSON toolbox definition
-          initialXml={initialXml}
-    //  onXmlChange={setSubmittedXml}
-          onWorkspaceChange={workspaceDidChange}
-          workspaceConfiguration={{
-            scrollbars: false,
-            grid: {
-              spacing: 20,
-              length: 3,
-              colour: '#ccc',
-              snap: true,
-            },
-          }}
-        />
-      )}
-    </div>
+    <Card>
+      <Card.Body>
+        {resetButton && (
+          <div className="wrapper">
+            <Stack>
+              <Button onClick={setModalShow} variant="alert" className="fa fa-plus">
+                <i className="material-icons">info_outline</i>
+              </Button>
+              <Button onClick={reset} variant="alert" className="fa fa-plus">
+                <i className="material-icons">refresh</i>
+              </Button>
+            </Stack>
+          </div>
+        )}
+        {(isLoading) ? (<div className="spinner"><Spinner animation="grow" /></div>) : (
+          <BlocklyWorkspace
+            key={seed}
+            className="blockly-workspace"
+          // toolboxConfiguration={toolboxCategories} // this must be a JSON toolbox definition
+            initialXml={initialXml}
+        //  onXmlChange={setSubmittedXml}
+            onWorkspaceChange={workspaceDidChange}
+            workspaceConfiguration={{
+              scrollbars: false,
+              grid: {
+                spacing: 20,
+                length: 3,
+                colour: '#ccc',
+                snap: true,
+              },
+            }}
+          />
+        )}
+      </Card.Body>
+    </Card>
+
   );
 }
