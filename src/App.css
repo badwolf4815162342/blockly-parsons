@@ -142,7 +142,7 @@
     top: 120px;
   }
  }
- 
+
   /* xxxxl */
 @media screen and (min-width: 1601px) {
   .blockly-workspace {
@@ -158,20 +158,45 @@
 }
 
 .forwardbtn {
-  height: 30px;
- width: 30px;
- display: inline-block;
- border-radius: 90%;
- border-width: 0rem;
- border-color: #EA4335 !important;
- font-size: large;
- font-weight: 500;
- margin-left: 7px;
- vertical-align: middle;
+ height: 30px !important;
+ width: 30px !important ;
+ color:#FBBC05 !important;
+ border-radius: 50% !important;
+ border-width: 0.2rem !important;
+ border-color: hsl(45, 97%, 50%) !important;
+ font-size: x-small !important;
+ vertical-align: middle !important;
  background-color:  #EA4335 !important;
- text-align: center;
- -webkit-appearance: none;
+ text-align: center !important;
+}
 
+.forwardbtn-grey {
+  height: 30px !important;
+  width: 30px !important ;
+  color:lightgray !important;
+  border-radius: 50% !important;
+  border-width: 0.2rem !important;
+  border-color: lightgray !important;
+  font-size: x-small !important;
+
+  vertical-align: middle !important;
+  background-color:  grey !important;
+  text-align: center !important;
+ }
+
+.forwardbtn:disabled,
+.forwardbtn[disabled]{
+  height: 50px !important;
+  width: 50px !important ;
+  color:#FBBC05 !important;
+  border-radius: 50% !important;
+  font-size: large !important;
+  border-width: 0.4rem !important;
+  border-color: #FBBC05 !important;
+  vertical-align: middle !important;
+  background-color:  #EA4335 !important;
+  text-align: center !important;
+  opacity: 1.0 !important;
 }
 
 .closebtn{
@@ -190,7 +215,14 @@
 
 .wizard-nav {
   background: #EA4335;
-  height:5%;
+  height:7%;
+  width: 20%;
+  z-index: 1000;
+  position: fixed;
+  bottom: -10px;
+  left: 40%;
+  border-radius: 10%;
+
 }
 
 .step-container {

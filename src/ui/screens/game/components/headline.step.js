@@ -8,7 +8,7 @@ import useExercises from '../../../../core/provider/exercises/use';
 import MyBlockly from './myblockly';
 import HorizontalSpace from '../../../utils/horizontalspace';
 
-export default function ExerciseStep() {
+export default function HeadlineStep() {
   const {
     state: { isLoading, currentExerciseNumber, exerciseList },
   } = useExercises();

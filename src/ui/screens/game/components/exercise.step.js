@@ -1,6 +1,9 @@
 import {
   Row, Col, Container, Modal, Button, Spinner,
 } from 'react-bootstrap';
+import {
+  Link,
+} from 'react-router-dom';
 import MediaQuery from 'react-responsive';
 import React, { useState } from 'react';
 import ButtonCard from './Cards/button.card';
@@ -201,7 +204,9 @@ function FeedbackModal(props) {
               <FeedbackCard />
             </Modal.Body>
             <Modal.Footer>
-              {feedback.success === false && (<Button variant="outline-warning" onClick={onHide}>Try again</Button>)}
+              {(feedback.success === false)
+                ? (<Button variant="outline-warning" onClick={onHide}>Try again</Button>)
+                : (<Button variant="outline-danger"><Link className="nav-link" to="/">More Exercises</Link></Button>)}
             </Modal.Footer>
           </div>
         )}
