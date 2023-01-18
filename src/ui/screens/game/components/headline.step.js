@@ -26,7 +26,11 @@ export default function HeadlineStep() {
         >
           <Row>
             <Container>
-              <MyBlockly showOnlyTitle resetButton={false} />
+              <MyBlockly
+                showOnlyTitle
+                resetButton={false}
+                movable={false}
+              />
             </Container>
           </Row>
 

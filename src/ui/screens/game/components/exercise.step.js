@@ -1,5 +1,5 @@
 import {
-  Row, Col, Container, Modal, Button, Spinner,
+  Row, Col, Container, Modal, Button, Spinner, Form,
 } from 'react-bootstrap';
 import {
   Link,
@@ -15,11 +15,21 @@ import useExercises from '../../../../core/provider/exercises/use';
 import HorizontalSpace from '../../../utils/horizontalspace';
 import MyBlockly from './myblockly';
 import FeedbackCard from './Cards/feedback.card';
+import ExerciseStepExplanationCard from './Cards/exercise.step.explanation.card';
+import DraggableModalDialog from '../../../utils/draggableModal';
 
 export default function ExerciseStep() {
+  const {
+    state: { pythonCodeString },
+    actions: { setFeedback },
+  } = useGame();
+  const {
+    state: { currentExerciseNumber, exerciseList, showInformationModalOnEntry },
+  } = useExercises();
+
   const [isGameMode, setGameMode] = useState(true);
   const [isFeedbackLoading, setFeedbackLoading] = useState(false);
-  const [showTippsModal, setShowTippsModal] = React.useState(true);
+  const [showTippsModal, setShowTippsModal] = React.useState(showInformationModalOnEntry);
   const [showFeedbackModal, setShowFeedbackModal] = React.useState(false);
 
   const notShowTipps = () => {
@@ -32,14 +42,6 @@ export default function ExerciseStep() {
     setShowFeedbackModal(false);
     console.log('modal_not_show');
   };
-
-  const {
-    state: { pythonCodeString },
-    actions: { setFeedback },
-  } = useGame();
-  const {
-    state: { currentExerciseNumber, exerciseList },
-  } = useExercises();
 
   const closeGame = async () => {
     if (isFeedbackLoading) {
@@ -89,22 +91,24 @@ export default function ExerciseStep() {
             <Row>
               <Container>
                 <MyBlockly
+                  movable
                   showOnlyTitle={false}
                   resetButton
                   setModalShow={setShowTippsModal}
                 />
-
               </Container>
             </Row>
-
           </Col>
           <Col xl={{ span: 4, order: 1 }} xxl={{ span: 4, order: 1 }}>
             <MediaQuery maxWidth={1199}>
               <Row>
-                <Col xs={8} sm={9}>
+                <Col xs={3} sm={3}>
+                  <ExerciseStepExplanationCard />
+                </Col>
+                <Col xs={7} sm={6}>
                   <ExerciseCard />
                 </Col>
-                <Col xs={4} sm={3}>
+                <Col xs={2} sm={3}>
                   <Container>
                     <ButtonCard
                       gameMode={isGameMode}
@@ -120,15 +124,17 @@ export default function ExerciseStep() {
             <MediaQuery minWidth={1200}>
               <Container>
                 <Row>
+                  <ExerciseStepExplanationCard />
+                </Row>
+                <HorizontalSpace />
+                <Row>
                   <ExerciseCard />
                 </Row>
                 <HorizontalSpace />
-
                 <Row>
                   <ShowCodeCard isLoadingGame />
                 </Row>
                 <HorizontalSpace />
-
                 <Row>
                   {' '}
                   <ButtonCard
@@ -156,16 +162,21 @@ export default function ExerciseStep() {
 }
 
 function TippsModal(props) {
+  const {
+    state: { showInformationModalOnEntry }, actions: { setShowInformationModalOnEntry },
+  } = useExercises();
   // eslint-disable-next-line react/prop-types
   const { onHide } = props;
   // eslint-disable-next-line react/prop-types
   const { show } = props;
+
   return (
     <Modal
       show={show}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      dialogAs={DraggableModalDialog}
     >
       <Modal.Header className="justify-content-end">
         <Button variant="closebtn" onClick={onHide}><i className="material-icons">close</i></Button>
@@ -173,7 +184,16 @@ function TippsModal(props) {
       <Modal.Body>
         <img src={`${process.env.PUBLIC_URL}/Tipps.png`} alt="Tipps" width="1080" className="img-fluid" />
       </Modal.Body>
-
+      <Modal.Footer>
+        <Form>
+          <Form.Check
+            id="showInformationModal"
+            defaultChecked={!showInformationModalOnEntry}
+            onChange={() => setShowInformationModalOnEntry(!showInformationModalOnEntry)}
+            label="Stop automatically showing this on step 3 entry."
+          />
+        </Form>
+      </Modal.Footer>
     </Modal>
   );
 }
@@ -193,6 +213,7 @@ function FeedbackModal(props) {
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      dialogAs={DraggableModalDialog}
     >
       <Modal.Header className="justify-content-end">
         <Button variant="closebtn" onClick={onHide}><i className="material-icons">close</i></Button>

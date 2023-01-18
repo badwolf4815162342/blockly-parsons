@@ -17,7 +17,7 @@ function reduceLineNumbers(input) {
 
   var text = input;
   text = text.replace(/line (\d+),/g, function (match, number) {
-    const newNumber = (parseInt(number) - 7)
+    const newNumber = (parseInt(number) - 8)
     return 'line ' + newNumber + ',';
   });
   return text;

@@ -1,4 +1,11 @@
 <xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="/H0zamS-3CFEiqhRxwqr">words</variable>
+    <variable id=")B5|ts8+:qg}H!QNdPS#">letter</variable>
+    <variable id="H|faJeHkeC=j(3_6^s8k">new_word</variable>
+    <variable id=",,M%_MG6[oi^RPyD@/4$">word</variable>
+    <variable id="o*Q}|h3u5}krYFceD*S#">new_words</variable>
+  </variables>
   <block type="group_title" id="wkWP8Td7$H4Jj$,%:9;J" x="37" y="38" editable="false" deletable="false" movable="false">
     <value name="TEXT">
       <shadow type="text" id="f#}v^f(GX4xWPkx/|V;D" deletable="false">
@@ -19,22 +26,6 @@
       </block>
     </value>
   </block>
-  <block type="variables_set" id="WG4$t:rP$ADw0VsGN=kB" x="313" y="363" editable="false" deletable="false">
-    <field name="VAR" id="H|faJeHkeC=j(3_6^s8k">new_word</field>
-    <value name="VALUE">
-      <block type="variables_get" id="KMQ([Tb]?d1xG~io[okv" movable="false" editable="false" deletable="false">
-        <field name="VAR" id=")B5|ts8+:qg}H!QNdPS#">letter</field>
-      </block>
-    </value>
-  </block>
-  <block type="variables_set" id=".mbPW@r^BB:cg}Sy-D{V" x="163" y="412" editable="false" deletable="false">
-    <field name="VAR" id="H|faJeHkeC=j(3_6^s8k">new_word</field>
-    <value name="VALUE">
-      <block type="text" id="5VkNz{VXH97m[vE(*7,4" movable="false" editable="false" deletable="false">
-        <field name="TEXT" />
-      </block>
-    </value>
-  </block>
   <block type="group_title" id="R2S-a8|k-PGO:V%@Y=,_" x="37" y="463" editable="false" deletable="false" movable="false">
     <value name="TEXT">
       <shadow type="text" id="RW|+.v.2h5R#%rCMP|hp" deletable="false">
@@ -45,36 +36,4 @@
       </block>
     </value>
   </block>
-  <block type="variables_set" id="KbNoaA_i^1H2-riU=f^0" x="13" y="563" editable="false" deletable="false">
-    <field name="VAR" id="o*Q}|h3u5}krYFceD*S#">new_words</field>
-    <value name="VALUE">
-      <block type="lists_create_with" id="i[6-^t6v:!SaaOx*Ib*L" movable="false" editable="false" deletable="false">
-        <mutation items="0" />
-      </block>
-    </value>
-  </block>
-  <block type="text_print" id="#%o*+WwqV8-iqmfOlV]t" x="37" y="613" editable="false" deletable="false">
-    <value name="TEXT">
-      <shadow type="text" id="r#V(BnMQi)hCS@$;N=8w" deletable="false">
-        <field name="TEXT">abc</field>
-      </shadow>
-      <block type="lists_split" id="liuT-p.CM3-SxH}hKWY9" movable="false" editable="false" deletable="false">
-        <mutation mode="JOIN" />
-        <field name="MODE">JOIN</field>
-        <value name="INPUT">
-          <block type="variables_get" id="xrg:T-U/jrx2M!zKajML" movable="false" editable="false" deletable="false">
-            <field name="VAR" id="o*Q}|h3u5}krYFceD*S#">new_words</field>
-          </block>
-        </value>
-        <value name="DELIM">
-          <shadow type="text" id="{hhdBZ~B|]EA2fBb:t|l" deletable="false">
-            <field name="TEXT">,</field>
-          </shadow>
-          <block type="text" id="m-/,WSYgzJl*gE;f~NN|" movable="false" editable="false" deletable="false">
-            <field name="TEXT">,</field>
-          </block>
-        </value>
-      </block>
-    </value>
-  </block>
-</xml>
+  </xml>

@@ -20,6 +20,8 @@ export default function MyBlockly(props) {
   const { resetButton } = props;
   // eslint-disable-next-line react/prop-types
   const { setModalShow } = props;
+  // eslint-disable-next-line react/prop-types
+  const { movable } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [initialXml, setInitialXml] = useState('');
   const [seed, setSeed] = useState(1);
@@ -80,7 +82,7 @@ export default function MyBlockly(props) {
       const codeJSArray = codeJS.split(/\r?\n|\r|\n/g);
       codeJSArray.forEach((line) => line.trim());
       const filtered = codeJSArray.filter((line) => (line !== ''));
-      setJavascriptCodeString(filtered.join('\n'));
+      setJavascriptCodeString(filtered.join('\n').replace('raw_input', 'input'));
       setJavascriptCodeArray(filtered);
     }
     setSubmittedXml(workspace);
@@ -103,26 +105,75 @@ export default function MyBlockly(props) {
           </div>
         )}
         {(isLoading) ? (<div className="spinner"><Spinner animation="grow" /></div>) : (
-          <BlocklyWorkspace
-            key={seed}
-            className="blockly-workspace"
-          // toolboxConfiguration={toolboxCategories} // this must be a JSON toolbox definition
+          <GetWorksPace
+            movable={movable}
+            seed={seed}
             initialXml={initialXml}
-        //  onXmlChange={setSubmittedXml}
-            onWorkspaceChange={workspaceDidChange}
-            workspaceConfiguration={{
-              scrollbars: false,
-              grid: {
-                spacing: 20,
-                length: 3,
-                colour: '#ccc',
-                snap: true,
-              },
-            }}
+            workspaceDidChange={workspaceDidChange}
           />
         )}
       </Card.Body>
     </Card>
 
+  );
+}
+
+function GetWorksPace(props) {
+  // eslint-disable-next-line react/prop-types
+  const { movable } = props;
+  // eslint-disable-next-line react/prop-types
+  const { seed } = props;
+  // eslint-disable-next-line react/prop-types
+  const { initialXml } = props;
+  // eslint-disable-next-line react/prop-types
+  const { workspaceDidChange } = props;
+  if (movable) {
+    return (
+      <BlocklyWorkspace
+        key={seed}
+        className="blockly-workspace"
+    // toolboxConfiguration={toolboxCategories} // this must be a JSON toolbox definition
+        initialXml={initialXml}
+  //  onXmlChange={setSubmittedXml}
+        onWorkspaceChange={workspaceDidChange}
+        workspaceConfiguration={{
+          scrollbars: { horizontal: true, vertical: true },
+          zoom:
+   {
+     controls: true,
+     wheel: true,
+     startScale: 1.0,
+     maxScale: 1.0,
+     minScale: 0.8,
+     scaleSpeed: 1.2,
+     pinch: true,
+   },
+          grid: {
+            spacing: 20,
+            length: 3,
+            colour: '#ccc',
+            snap: true,
+          },
+        }}
+      />
+    );
+  }
+  return (
+    <BlocklyWorkspace
+      key={seed}
+      className="blockly-workspace"
+  // toolboxConfiguration={toolboxCategories} // this must be a JSON toolbox definition
+      initialXml={initialXml}
+//  onXmlChange={setSubmittedXml}
+      onWorkspaceChange={workspaceDidChange}
+      workspaceConfiguration={{
+        grid: {
+          spacing: 20,
+          length: 3,
+          colour: '#ccc',
+          snap: true,
+        },
+      }}
+    />
   );
 }

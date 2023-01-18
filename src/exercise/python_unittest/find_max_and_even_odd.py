@@ -1,40 +1,40 @@
 import unittest
+from unittest.mock import patch
 from io import StringIO
 import sys
 
 def method():
-  num_to_guess = None
-  counter = None
-  guess_list = None
-  guess = None
-  num_to_guess = 7
-  counter = 1
-  guess_list = [4, 9, -1]
-  guess = guess_list[int(counter - 1)]
-  while guess != -1 and guess != num_to_guess:
-    if guess > num_to_guess:
-      print('Too high ...')
+  max2 = None
+  x = None
+  num = None
+  def text_prompt(msg):
+    try:
+      return raw_input(msg)
+    except NameError:
+      return input(msg)
+  max2 = 0
+  while not num == -1:
+    num = float(text_prompt('Type next number'))
+    if num % 2 == 0:
+      print('Number is even')
     else:
-      print('Too low ...')
-    counter = counter + 1
-    guess = guess_list[int(counter - 1)]
-  if guess == num_to_guess:
-    print('Right! Number of Tries: ' + str(counter))
+      print('Number is odd.')
+    if num >= max2:
+      print('This is the current max.')
+    max2 = num
 
 class myTests(unittest.TestCase):
-    def testOne(self):
+    @patch('builtins.input',side_effect=['4','9','2','-1'])
+    def testOne(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.
         method()                                  # Call unchanged function.
         sys.stdout = sys.__stdout__                   # Reset redirect.
         outputArray = capturedOutput.getvalue().split('\n')
-        #self.assertEqual(outputArray[0],'Number is odd.')
-        #self.assertEqual(outputArray[1],'This is the current max.')
-        #self.assertEqual(outputArray[2],'Number is even')
-        #self.assertEqual(outputArray[3],'Number is even')
-        #self.assertEqual(outputArray[4],'This is the current max.')
+        if (len(outputArray)>1):
+            outputArray.pop()
         self.assertEqual(outputArray,
-           ['Too low ...', 'Too high ...', ''],)
+           ['Number is even','This is the current max.','Number is odd.','This is the current max.','Number is even','Number is odd.'],)
 
     
 _test_result = myTests().testOne()

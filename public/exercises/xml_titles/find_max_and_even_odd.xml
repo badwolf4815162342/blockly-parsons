@@ -1,15 +1,10 @@
 <xml xmlns="https://developers.google.com/blockly/xml">
-  <block type="group_title" id="+4VgYl=Ww0zb}r@!UbN5" x="13" y="-13" editable="false" deletable="false" movable="false">
-    <value name="TEXT">
-      <shadow type="text" id="nO@8ox~8(!1fE:syKQ5x" deletable="false">
-        <field name="TEXT">abc</field>
-      </shadow>
-      <block type="text" id="NnOblZEvmbkTZuS;e=D2" movable="false" editable="false" deletable="false">
-        <field name="TEXT">Alternate</field>
-      </block>
-    </value>
-  </block>
-  <block type="group_title" id="jB+?Ir.D-y+@YG0eStN8" x="338" y="13" editable="false" deletable="false" movable="false">
+  <variables>
+    <variable id="{.n;O~gc/tvR;8@4T-vp">max</variable>
+    <variable id="4oTv|8O2h7FpX1?{XIYq">num</variable>
+    <variable id="|cH300xOF|DgeP$?+ga-">x</variable>
+  </variables>
+  <block type="group_title" id="jB+?Ir.D-y+@YG0eStN8" x="488" y="63" editable="false" deletable="false" movable="false">
     <value name="TEXT">
       <shadow type="text" id="*Hc0+;:v|V[]~l+11-S/" deletable="false">
         <field name="TEXT">abc</field>
@@ -19,50 +14,17 @@
       </block>
     </value>
   </block>
-  <block type="variables_set" id="q0NN;],}?ZGH]5M~DeSF" x="388" y="63" editable="false" deletable="false">
-    <field name="VAR" id="{.n;O~gc/tvR;8@4T-vp">max</field>
-    <value name="VALUE">
-      <block type="variables_get" id="JRu-N{OQx]ahqsn89Jjv" movable="false" editable="false" deletable="false">
-        <field name="VAR" id="4oTv|8O2h7FpX1?{XIYq">num</field>
-      </block>
-    </value>
-  </block>
-  <block type="text_print" id="r_}_JE3U9#EbpyFD(f(Q" x="313" y="112" editable="false" deletable="false">
+  <block type="group_title" id="+4VgYl=Ww0zb}r@!UbN5" x="37" y="88" editable="false" deletable="false" movable="false">
     <value name="TEXT">
-      <shadow type="text" id="9GvZR=/o#$Z;v]p*+jOw" deletable="false">
+      <shadow type="text" id="nO@8ox~8(!1fE:syKQ5x" deletable="false">
         <field name="TEXT">abc</field>
       </shadow>
-      <block type="text" id="?K!.Yxa%KP08sXEOc$2u" movable="false" editable="false" deletable="false">
-        <field name="TEXT">This is the current max.</field>
+      <block type="text" id="NnOblZEvmbkTZuS;e=D2" movable="false" editable="false" deletable="false">
+        <field name="TEXT">Alternate</field>
       </block>
     </value>
   </block>
-  <block type="text_print" id="J@2Vr(qXcNYkz^6Wk~xf" x="37" y="213" editable="false" deletable="false">
-    <value name="TEXT">
-      <shadow type="text" id="0-i(=,+=DCCxr4at?w|2" deletable="false">
-        <field name="TEXT">Number is even</field>
-      </shadow>
-    </value>
-  </block>
-  <block type="variables_set" id="n%2M{t4RiO?(wjs14-N{" x="312" y="262" editable="false" deletable="false">
-    <field name="VAR" id="{.n;O~gc/tvR;8@4T-vp">max</field>
-    <value name="VALUE">
-      <block type="math_number" id="k:uhb!xNbKkG-a;={/B6" movable="false" editable="false" deletable="false">
-        <field name="NUM">0</field>
-      </block>
-    </value>
-  </block>
-  <block type="group_title" id="gCnw)9w_dV8Tu@V2Tmf(" x="38" y="363" editable="false" deletable="false" movable="false">
-    <value name="TEXT">
-      <shadow type="text" id="k}Y):8N.)!^,=j|vGq8a" deletable="false">
-        <field name="TEXT">abc</field>
-      </shadow>
-      <block type="text" id="Ca}y-VPK(;/s{IOR-Vz3" movable="false" editable="false" deletable="false">
-        <field name="TEXT">Read values</field>
-      </block>
-    </value>
-  </block>
-  <block type="group_title" id="Zvio2y)A!P)6[+-Nk9vn" x="412" y="362" editable="false" deletable="false" movable="false">
+  <block type="group_title" id="Zvio2y)A!P)6[+-Nk9vn" x="38" y="437" editable="false" deletable="false" movable="false">
     <value name="TEXT">
       <shadow type="text" id="%nh8NrCvlJ$!!|Ea+uQE" deletable="false">
         <field name="TEXT">abc</field>
@@ -72,12 +34,14 @@
       </block>
     </value>
   </block>
-  <block type="controls_forEach" id="N$*3$/)CVf|[Bt!zw3$q" x="363" y="413" editable="false" deletable="false">
-    <field name="VAR" id="4oTv|8O2h7FpX1?{XIYq">num</field>
-    <value name="LIST">
-      <block type="variables_get" id="qHfJ}t;_)AEPUMUmBU?8" movable="false" editable="false" deletable="false">
-        <field name="VAR" id="LuF?A4Fzu-=.3oy$+$tn">list</field>
+  <block type="group_title" id="gCnw)9w_dV8Tu@V2Tmf(" x="538" y="512" editable="false" deletable="false" movable="false">
+    <value name="TEXT">
+      <shadow type="text" id="k}Y):8N.)!^,=j|vGq8a" deletable="false">
+        <field name="TEXT">abc</field>
+      </shadow>
+      <block type="text" id="Ca}y-VPK(;/s{IOR-Vz3" movable="false" editable="false" deletable="false">
+        <field name="TEXT">Read values</field>
       </block>
     </value>
   </block>
-</xml>
+  </xml>

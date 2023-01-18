@@ -1,4 +1,9 @@
 <xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="ryq}yoSm|-xaO3V0X7)W">guess</variable>
+    <variable id="hw=bdEu-as$UkcyU$o:.">counter</variable>
+    <variable id=")bV+!=IhE7(VZ:?LwOQm">num_to_guess</variable>
+  </variables>
   <block type="group_title" id="[Q4b-q,lJl2;==V[OXLd" x="187" y="12" editable="false" deletable="false" movable="false">
     <value name="TEXT">
       <shadow type="text" id="=utDZ|C?z3E%neK9oR56" deletable="false">
@@ -9,49 +14,6 @@
       </block>
     </value>
   </block>
-  <block type="variables_set" id="c$PF#ywNkY0-!)GjNqQs" x="337" y="113" editable="false" deletable="false">
-    <field name="VAR" id="ryq}yoSm|-xaO3V0X7)W">guess</field>
-    <value name="VALUE">
-      <block type="lists_getIndex" id="CJ7d7]YWma:^8Fq09nP}" movable="false" editable="false" deletable="false">
-        <mutation statement="false" at="true" />
-        <field name="MODE">GET</field>
-        <field name="WHERE">FROM_START</field>
-        <value name="VALUE">
-          <block type="variables_get" id="n#3h8dm1O3nu-2/8|~Ap" movable="false" editable="false" deletable="false">
-            <field name="VAR" id="H}~LI}jNYEyjc}%E$v!s">guess_list</field>
-          </block>
-        </value>
-        <value name="AT">
-          <block type="variables_get" id="B^}Q+TmU4oXJuN3a{WXP" movable="false" editable="false" deletable="false">
-            <field name="VAR" id="hw=bdEu-as$UkcyU$o:.">counter</field>
-          </block>
-        </value>
-      </block>
-    </value>
-  </block>
-  <block type="variables_set" id="L@@=4QIs#ZZ{1b{?gIQ5" x="138" y="163" editable="false" deletable="false">
-    <field name="VAR" id="H}~LI}jNYEyjc}%E$v!s">guess_list</field>
-    <value name="VALUE">
-      <block type="lists_create_with" id="o[6RH-0bSq[zzgzEY,)}" movable="false" editable="false" deletable="false">
-        <mutation items="3" />
-        <value name="ADD0">
-          <block type="math_number" id="Fk}Nr8[62m|ciSp9r/w|" movable="false" editable="false" deletable="false">
-            <field name="NUM">4</field>
-          </block>
-        </value>
-        <value name="ADD1">
-          <block type="math_number" id="+!eGp6kUu)1w#tvUEH=E" movable="false" editable="false" deletable="false">
-            <field name="NUM">9</field>
-          </block>
-        </value>
-        <value name="ADD2">
-          <block type="math_number" id="[fQ_?aZwsb}J+|F1F[R%" movable="false" editable="false" deletable="false">
-            <field name="NUM">-1</field>
-          </block>
-        </value>
-      </block>
-    </value>
-  </block>
   <block type="group_title" id=";YGl1SX6w#.g)BkZQ8jq" x="512" y="237" editable="false" deletable="false" movable="false">
     <value name="TEXT">
       <shadow type="text" id="Pne0)if%N+@j{w5{b%BY" deletable="false">
@@ -59,27 +21,6 @@
       </shadow>
       <block type="text" id="qlY=S+^03v{t1vGuF{cE" movable="false" editable="false" deletable="false">
         <field name="TEXT">Try counter</field>
-      </block>
-    </value>
-  </block>
-  <block type="variables_set" id="K+62t|Zs2Gx@ScT?Q?G-" x="438" y="312" editable="false" deletable="false">
-    <field name="VAR" id="hw=bdEu-as$UkcyU$o:.">counter</field>
-    <value name="VALUE">
-      <block type="math_arithmetic" id="J84!pT[)AB{-o{v3-rgm" movable="false" editable="false" deletable="false">
-        <field name="OP">ADD</field>
-        <value name="A">
-          <shadow type="math_number" id="Z4vvF_:itTz3C3H*mdUo" deletable="false">
-            <field name="NUM">1</field>
-          </shadow>
-          <block type="variables_get" id="_X-LVXqKIhk;deLNtV#W" movable="false" editable="false" deletable="false">
-            <field name="VAR" id="hw=bdEu-as$UkcyU$o:.">counter</field>
-          </block>
-        </value>
-        <value name="B">
-          <shadow type="math_number" id="BLuS2nGnzSx?/+ZNOi)V" deletable="false">
-            <field name="NUM">1</field>
-          </shadow>
-        </value>
       </block>
     </value>
   </block>
@@ -110,34 +51,6 @@
       </shadow>
       <block type="text" id="tBz}If~s[UW{!1U:(m8M" movable="false" editable="false" deletable="false">
         <field name="TEXT">Is the guess correct?</field>
-      </block>
-    </value>
-  </block>
-  <block type="controls_if" id="7m-X4-A8IsbD-+.X:Gzs" x="462" y="513" editable="false" deletable="false">
-    <mutation else="1" />
-    <value name="IF0">
-      <block type="logic_compare" id="ID8UV3a-d+X9~124M1~!" movable="false" editable="false" deletable="false">
-        <field name="OP">GT</field>
-        <value name="A">
-          <block type="variables_get" id="i5nsk+L@F=2g^$s2w5Jy" movable="false" editable="false" deletable="false">
-            <field name="VAR" id="ryq}yoSm|-xaO3V0X7)W">guess</field>
-          </block>
-        </value>
-        <value name="B">
-          <block type="variables_get" id="++6=Z8dgUC;xx?Ps]![n" movable="false" editable="false" deletable="false">
-            <field name="VAR" id=")bV+!=IhE7(VZ:?LwOQm">num_to_guess</field>
-          </block>
-        </value>
-      </block>
-    </value>
-  </block>
-  <block type="text_print" id="YaIF=m,67szu}TEB9,%D" x="594" y="544" editable="false" deletable="false">
-    <value name="TEXT">
-      <shadow type="text" id="mrlR-?4O6fZDLSPM^yxT" deletable="false">
-        <field name="TEXT">abc</field>
-      </shadow>
-      <block type="text" id="b!R1*-0L3qebWA-=%Wkz" movable="false" editable="false" deletable="false">
-        <field name="TEXT">Too high ...</field>
       </block>
     </value>
   </block>

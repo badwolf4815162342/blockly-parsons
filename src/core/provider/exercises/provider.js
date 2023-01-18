@@ -8,19 +8,23 @@ export default function ExercisesProvider({ children }) {
   const [exerciseList, setExerciseList] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [currentExerciseNumber, setCurrentExerciseNumber] = useState(null);
+  const [showInformationModalOnEntry, setShowInformationModalOnEntry] = useState(true);
 
   const value = React.useMemo(() => ({
     state: {
       isLoading,
       exerciseList,
       currentExerciseNumber,
+      showInformationModalOnEntry,
     },
     actions: {
       setLoading,
       setExerciseList,
       setCurrentExerciseNumber,
+      setShowInformationModalOnEntry,
     },
-  }), [isLoading, exerciseList, currentExerciseNumber, setCurrentExerciseNumber]);
+  }), [isLoading, exerciseList, currentExerciseNumber,
+    showInformationModalOnEntry, setCurrentExerciseNumber]);
 
   useEffect(() => {
     function loadExercises() {

@@ -2,35 +2,36 @@
     "exercises": [
         {
             "number": 0,
-            "name": "Find even or odd and maximum in list.",
+            "name": "Find even or odd and maximum in list.\nDifficulty: 💡💡",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/find_max_and_even_odd.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/find_max_and_even_odd.txt",
             "trys": 0,
-            "text": "Write a program that takes <b>numbers of a list</b> and <b>firstly</b> outputs if the <b>number</b> is <b>even</b> or <b>odd</b> and <b>afterwards</b> whether it is the <b>current maximum</b>."
+            "text": "Write a program that <b>reads in numbers</b> and <b>ends immediatly</b> when a <b>negtive number is read</b>.  Then, for all the numbers in the list it should output <b>first</b> if the number is <b>even or odd</b> and <b>afterwards</b> whether it is the <b>current maximum</b>."
         },
         {
             "number": 1,
-            "name": "Guessing game.",
+            "name": "Guessing game.\nDifficulty: 💡💡",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/guessing_game.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/guessing_game.txt",
             "trys": 0,
-            "text": "First we set a <b>guess number</b> (in this case it is set to 7) and a <b>list of input values</b> and checks for this <b>list of guesses</b> if each value matches the guess number. It also gives <b>feedback</b> if the input is <b>too low</b> or <b>too high</b> and <b>finishes</b> when the value <b>-1</b> is found in the list of inputs."
+            "text": "First we set a <b>guess number</b> (in this case it is set to 7). Now write a program that <b>reads in numbers</b> and <b>ends immediatly</b> when a <b>negtive number is read</b>. Then check if each value matches the guess number. The program should also give <b>feedback</b> if the input is <b>too low</b> or <b>too high</b> and in the end <b>how many tries</b> it took."
         },
         {
             "number": 2,
-            "name": "Even or odd.",
+            "name": "Even or odd.\nDifficulty: 💡",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/even_odd.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/even_odd.txt",
             "trys": 0,
-            "text": "Report wether an <b>input</b> number is <b>even</b> or <b>odd</b>."
+            "text": "Report whether an <b>input</b> number is <b>even</b> or <b>odd</b>."
         },
         {
             "number": 3,
-            "name": "Reverse word and wordlist.",
+            "name": "Reverse word and wordlist.\nDifficulty: 💡💡💡",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/reverse_word_and_wordlist.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/reverse_word_and_wordlist.txt",
             "trys": 0,
-            "text": "Given an <b>array of words</b> which make up a sentence, generate and <b>print</b> out the comma seperated <b>words as a string in reverse order</b> and <b>each word reversed</b>."
+            "text": "Given a <b>list of words</b> which make up a sentence, generate a <b>print</b> out a string which consists of <b>all the words in reverse order</b>, with <b>each word itself reversed too</b>.  Place a <b>space</b> after every word. For example, if the list of words contains “Hello” and “World” in that order, the string created would be “dlroW olleH “."
         }
     ]
 }
+
