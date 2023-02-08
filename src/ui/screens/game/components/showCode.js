@@ -8,12 +8,12 @@ function ShowCode() {
   const { state: { javascriptCodeString, pythonCodeString, pythonNotJS } } = useGame();
 
   return (
-    <Stack>
+    <Stack className="dark-text">
       {' '}
-      <div><LanguageSwitch /></div>
-      <div>
-        <pre id="highlighting" aria-hidden="true">
-          <SyntaxHighlighter showLineNumbers="true" language="python" style={docco}>
+      <div className="dark-text"><LanguageSwitch /></div>
+      <div className="dark-text">
+        <pre id="highlighting" aria-hidden="true" className="dark-text">
+          <SyntaxHighlighter customStyle={{ color: 'black' }} className="dark-text" showLineNumbers="true" language="python" style={docco}>
             {pythonNotJS ? pythonCodeString : javascriptCodeString}
           </SyntaxHighlighter>
         </pre>

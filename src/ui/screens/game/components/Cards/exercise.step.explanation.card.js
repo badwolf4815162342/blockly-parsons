@@ -1,17 +1,9 @@
-import {
-  Card,
-} from 'react-bootstrap';
-
-export default function ExerciseStepExplanationCard() {
+export default function ExerciseStepExplanation() {
   return (
-    <Card className="yellow-step-card">
-      <p>
-        <b>
-          Now all the puzzle pieces you need to solve the problem are laid
-          out and grouped by sub-goals here. Try to build the whole program
-          by combining all pieces.
-        </b>
-      </p>
-    </Card>
+    <p style={{ paddingLeft: '5px', paddingRight: '5px' }}>
+      In the workspace are all the puzzle pieces you need to solve the problem grouped
+      by sub-goal.
+      Try to build the solution by combining all!
+    </p>
   );
 }

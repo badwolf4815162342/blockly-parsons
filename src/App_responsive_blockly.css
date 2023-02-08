@@ -1,0 +1,180 @@
+
+.blockly-workspace {
+  height: calc(0.5*100vw)!important;
+  width: calc(0.9*100vw)!important;
+}
+
+.blocklySvg {
+  background-image: url('background.jpeg');
+  background-repeat: no-repeat;
+
+}
+
+/* xs */
+@media screen and (max-width: 576px) {
+  .blockly-workspace {
+    height: calc(0.5*100vw)!important;
+    width: calc(0.9*100vw)!important;
+  }
+
+  .wrapper { 
+    left: 80%;
+    top: 400px;
+  }
+}
+
+/* sm */
+@media screen and (min-width: 578px) and (max-width: 768px) {
+  .blockly-workspace {
+    height: calc(0.5*100vw)!important;
+    width: calc(0.9*100vw)!important;
+  }
+
+  .wrapper { 
+    left: 76%;
+    top: 400px;
+  }
+}
+
+/* sm-md */
+@media screen and (min-width: 769px) and (max-width: 890px) {
+  .blockly-workspace {
+    height: calc(0.5*100vw)!important;
+    width: calc(0.9*100vw)!important;
+  }
+
+  .wrapper { 
+    left: 82%;
+    top: 400px;
+  }
+}
+
+/* md */
+@media screen and (min-width: 891px) and (max-width: 1100px) {
+  .blockly-workspace {
+    height: calc(0.5*100vw)!important;
+    width: calc(0.9*100vw)!important;
+  }
+
+  .wrapper { 
+    left: 86%;
+    top: 400px;
+  }
+}
+
+
+/* lg now full width*/
+@media screen and (min-width: 1101px) and (max-width: 1199px) {
+.blockly-workspace {
+    height: calc(0.5*100vw)!important;
+    width: calc(0.9*100vw)!important;
+  }
+
+  .wrapper { 
+    left: 86%;
+    top: 350px;
+  }
+}
+
+
+
+/* xl */
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+  .blockly-workspace {
+    height: calc(0.5*100vw)!important;
+    width: calc(0.69*100vw)!important;
+  }
+
+  .wrapper { 
+    left: 67%;
+    top: 120px;
+
+  }
+}
+
+/* xxl */
+@media screen and (min-width: 1401px) and (max-width: 1500px) {
+  .blockly-workspace {
+    height: calc(0.5*100vw)!important;
+    width: calc(0.69*100vw)!important;
+  }
+
+  .wrapper { 
+    left: 67%;
+    top: 120px;
+
+  }
+}
+
+  /* xxxl */
+@media screen and (min-width: 1501px) and (max-width: 1800px) {
+  .blockly-workspace {
+    height: calc(0.5*100vw)!important;
+    width: calc(0.69*100vw)!important;
+  }
+
+  .wrapper { 
+    left: 67%;
+    top: 120px;
+
+  }
+}
+
+
+ /* xxxl */
+ @media screen and (min-width: 1801px) and (max-width: 2200px) {
+  .blockly-workspace {
+    height: calc(0.5*100vw)!important;
+    width: calc(0.71*100vw)!important;
+  }
+
+  .wrapper { 
+    left: 70%;
+    top: 120px;
+
+  }
+}
+
+ /* 4-xl */
+ @media screen and (min-width: 2201px) and (max-width: 3200px) {
+  .blockly-workspace {
+    height: calc(0.5*100vw)!important;
+    width: calc(0.71*100vw)!important;
+  }
+
+  .wrapper { 
+    left: 70%;
+    top: 120px;
+
+  }
+}
+
+
+  .wrapper { 
+    position: fixed;
+    z-index: 1000
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .blockly-card {
+    height: 770px;
+    width: 1000px;
+  }
+
+  .game-area {
+    height: 720px;
+    width: 1450px;
+}
+
+.wrapper  {
+  background-color: transparent;
+  opacity: 0.3;
+}

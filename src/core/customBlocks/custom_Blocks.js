@@ -5,6 +5,8 @@ import { pythonGenerator } from 'blockly/python';
 
 Blockly.Blocks.group_title = {
   init() {
+    this.appendDummyInput()
+      .appendField('  ');
     this.appendValueInput('TEXT')
       .setCheck(null)
       .setAlign(Blockly.ALIGN_CENTRE);
@@ -23,6 +25,36 @@ javascriptGenerator.group_title = function (block) {
 };
 
 pythonGenerator.group_title = function (block) {
+  // TODO: Assemble JavaScript into code variable.
+  console.log(block);
+  const code = '';
+  return code;
+};
+
+Blockly.Blocks.disabled_loop = {
+  init() {
+    this.appendDummyInput()
+      .appendField('(inactive loop) repeat condition/for each in list');
+    this.appendStatementInput('DO')
+      .setCheck(null)
+      .appendField('do');
+    this.setInputsInline(false);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour('EDE3D8');
+    this.setTooltip("This piece should not be used and won't be translated to code!!");
+    this.setHelpUrl('');
+  },
+};
+
+javascriptGenerator.disabled_loop = function (block) {
+  // TODO: Assemble JavaScript into code variable.
+  console.log(block);
+  const code = '';
+  return code;
+};
+
+pythonGenerator.disabled_loop = function (block) {
   // TODO: Assemble JavaScript into code variable.
   console.log(block);
   const code = '';

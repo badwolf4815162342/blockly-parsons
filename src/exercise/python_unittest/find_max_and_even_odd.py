@@ -5,7 +5,6 @@ import sys
 
 def method():
   max2 = None
-  x = None
   num = None
   def text_prompt(msg):
     try:
@@ -13,15 +12,17 @@ def method():
     except NameError:
       return input(msg)
   max2 = 0
-  while not num == -1:
-    num = float(text_prompt('Type next number'))
+  num = float(text_prompt('Type first number:'))
+  while not num < 0:
+    # print(num)
     if num % 2 == 0:
-      print('Number is even')
+      print('Number is even.')
     else:
       print('Number is odd.')
     if num >= max2:
       print('This is the current max.')
-    max2 = num
+      max2 = num
+    num = float(text_prompt('Type next number:'))
 
 class myTests(unittest.TestCase):
     @patch('builtins.input',side_effect=['4','9','2','-1'])
@@ -34,7 +35,7 @@ class myTests(unittest.TestCase):
         if (len(outputArray)>1):
             outputArray.pop()
         self.assertEqual(outputArray,
-           ['Number is even','This is the current max.','Number is odd.','This is the current max.','Number is even','Number is odd.'],)
+           ['Number is even.','This is the current max.','Number is odd.','This is the current max.','Number is even.'],)
 
     
 _test_result = myTests().testOne()

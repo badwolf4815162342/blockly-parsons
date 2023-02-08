@@ -15,6 +15,7 @@ export default function GameProvider({ children }) {
   const [pythonCodeString, setPythonCodeString] = useState('');
   const [pythonCodeArray, setPythonCodeArray] = useState([]);
   const [feedback, setFeedback] = useState({});
+  const [tries, setTries] = useState(0);
 
   const value = React.useMemo(() => ({
     state: {
@@ -29,6 +30,7 @@ export default function GameProvider({ children }) {
       leagueId,
       parson,
       feedback,
+      tries,
     },
     actions: {
       setPythonNotJS,
@@ -42,19 +44,15 @@ export default function GameProvider({ children }) {
       setLeagueId,
       setParsons,
       setFeedback,
+      setTries,
     },
   }), [javascriptCodeString,
     setJavascriptCodeString,
     pythonNotJS,
     pythonCodeString,
     feedback,
+    setTries, tries,
   ]);
-
-  // initial: put correct solution as python into parsons
-
-  // whenXML() {
-  // make python code, put into parsons
-  // }
 
   useEffect(() => {
     setParsons();

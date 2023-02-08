@@ -5,7 +5,7 @@ import Admin from '../admin.screen';
 // eslint-disable-next-line react/prop-types
 function ProtectedRoute() {
   const isAuthenticated = localStorage.getItem('isAuthenticated');
-  console.log('this', isAuthenticated);
+  // console.log('this', isAuthenticated);
 
   if (isAuthenticated) {
     return <Admin />;

@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import '../../../../App.css';
 import '../../../../core/customBlocks/custom_Blocks';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BlocklyWorkspace } from 'react-blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 import { pythonGenerator } from 'blockly/python';
@@ -21,9 +21,10 @@ export default function MyBlockly(props) {
   // eslint-disable-next-line react/prop-types
   const { setModalShow } = props;
   // eslint-disable-next-line react/prop-types
-  const { movable } = props;
+  const { readOnly } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [initialXml, setInitialXml] = useState('');
+  const [startZoomLevel, setStartZoomLevel] = useState(0.7);
   const [seed, setSeed] = useState(1);
   const reset = () => {
     setSeed(Math.random());
@@ -45,21 +46,25 @@ export default function MyBlockly(props) {
     state: { exerciseList, currentExerciseNumber },
   } = useExercises();
 
-  const xmls = exerciseList.filter((e) => e.number === currentExerciseNumber);
-  if (xmls.length === 1) {
-    let filename = xmls[0].baseXml;
-    if (showOnlyTitle) {
-      filename = filename.replace('xml', 'xml_titles');
+  useEffect(() => {
+    const currentExerciseFound = exerciseList.filter((e) => e.number === currentExerciseNumber);
+    if (currentExerciseFound.length === 1) {
+      let filename = currentExerciseFound[0].baseXml;
+      setStartZoomLevel(currentExerciseFound[0].startZoomLevel);
+      if (showOnlyTitle) {
+        filename = filename.replace('xml', 'xml_titles');
+      }
+      // console.log(filename);
+      fetch(filename)
+        .then((r) => r.text())
+        .then((xml) => {
+          setInitialXml(xml);
+          // startZoomLevel = 1.0;// currentExerciseFound[0].startZoomLevel;
+          // console.log(initialXml);
+          setIsLoading(false);
+        });
     }
-    console.log(filename);
-    fetch(filename)
-      .then((r) => r.text())
-      .then((xml) => {
-        setInitialXml(xml);
-        console.log(initialXml);
-        setIsLoading(false);
-      });
-  }
+  }, []);
 
   function workspaceDidChange(workspace) {
     const codePy = pythonGenerator.workspaceToCode(
@@ -86,7 +91,7 @@ export default function MyBlockly(props) {
       setJavascriptCodeArray(filtered);
     }
     setSubmittedXml(workspace);
-    console.log(codePy);
+    // console.log(codePy);
   }
 
   return (
@@ -106,7 +111,8 @@ export default function MyBlockly(props) {
         )}
         {(isLoading) ? (<div className="spinner"><Spinner animation="grow" /></div>) : (
           <GetWorksPace
-            movable={movable}
+            readOnly={readOnly}
+            startZoomLevel={startZoomLevel}
             seed={seed}
             initialXml={initialXml}
             workspaceDidChange={workspaceDidChange}
@@ -120,53 +126,46 @@ export default function MyBlockly(props) {
 
 function GetWorksPace(props) {
   // eslint-disable-next-line react/prop-types
-  const { movable } = props;
+  const { startZoomLevel } = props;
+  // eslint-disable-next-line react/prop-types
+  const { readOnly } = props;
   // eslint-disable-next-line react/prop-types
   const { seed } = props;
   // eslint-disable-next-line react/prop-types
   const { initialXml } = props;
   // eslint-disable-next-line react/prop-types
   const { workspaceDidChange } = props;
-  if (movable) {
-    return (
-      <BlocklyWorkspace
-        key={seed}
-        className="blockly-workspace"
-    // toolboxConfiguration={toolboxCategories} // this must be a JSON toolbox definition
-        initialXml={initialXml}
-  //  onXmlChange={setSubmittedXml}
-        onWorkspaceChange={workspaceDidChange}
-        workspaceConfiguration={{
-          scrollbars: { horizontal: true, vertical: true },
-          zoom:
-   {
-     controls: true,
-     wheel: true,
-     startScale: 1.0,
-     maxScale: 1.0,
-     minScale: 0.8,
-     scaleSpeed: 1.2,
-     pinch: true,
-   },
-          grid: {
-            spacing: 20,
-            length: 3,
-            colour: '#ccc',
-            snap: true,
-          },
-        }}
-      />
-    );
-  }
+  console.log(startZoomLevel);
   return (
     <BlocklyWorkspace
       key={seed}
       className="blockly-workspace"
-  // toolboxConfiguration={toolboxCategories} // this must be a JSON toolbox definition
+    // toolboxConfiguration={toolboxCategories} // this must be a JSON toolbox definition
       initialXml={initialXml}
-//  onXmlChange={setSubmittedXml}
+  //  onXmlChange={setSubmittedXml}
       onWorkspaceChange={workspaceDidChange}
       workspaceConfiguration={{
+        disable: false,
+        readOnly,
+        move:
+        {
+          scrollbars: {
+            horizontal: false,
+            vertical: true,
+          },
+          drag: true,
+          wheel: true,
+        },
+        zoom:
+   {
+     controls: true,
+     wheel: false,
+     startScale: startZoomLevel,
+     maxScale: 1.0,
+     minScale: startZoomLevel,
+     scaleSpeed: 1.2,
+     pinch: false,
+   },
         grid: {
           spacing: 20,
           length: 3,

@@ -8,7 +8,7 @@ function Login() {
   const [redirectToReferrer, setRedirectToReferrer] = useState(false);
 
   // const history = useHistory();
-  console.log('auth', localStorage.getItem('isAuthenticated'));
+  // console.log('auth', localStorage.getItem('isAuthenticated'));
 
   const handleInputChange = (e) => {
     setUserData((prevState) => ({
@@ -19,8 +19,8 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(userData.username);
-    console.log(userData.password);
+    // console.log(userData.username);
+    // console.log(userData.password);
     // if username or password field is empty, return error message
     if (userData.username === '' || userData.password === '') {
       setErrorMessage(() => ({

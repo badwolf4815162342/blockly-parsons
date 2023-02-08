@@ -17,7 +17,7 @@ function ExerciseList() {
   });
 
   const selectExercise = (num) => {
-    console.log(num);
+    // console.log(num);
     setCurrentExerciseNumber(num);
   };
 
