@@ -11,26 +11,9 @@ export default function HeadlineStep() {
   return (
     <div>
       <Container fluid className="App">
-        <Row>
-          {/* Blockly */}
-          <Col
-            xs={{ span: 12, order: 2 }}
-            sm={{ span: 12, order: 2 }}
-            md={{ span: 12, order: 2 }}
-            lg={{ span: 12, order: 2 }}
-            xl={{ span: 9, order: 1 }}
-            xxl={{ span: 9, order: 1 }}
-          >
-            <Row style={{ marginLeft: '5px', marginRight: '5px', paddingLeft: '0px' }}>
-              <HorizontalSpace />
-              <MyBlockly
-                readOnly
-                showOnlyTitle
-                resetButton={false}
-                movable={false}
-              />
-            </Row>
-          </Col>
+        <Row style={{
+        }}
+        >
           {/* Right/Upper boxes */}
           <Col xl={{ span: 3, order: 1 }} xxl={{ span: 3, order: 1 }}>
             {/* top on min screens */}
@@ -43,7 +26,7 @@ export default function HeadlineStep() {
                       What to do here?
                     </h1>
                     <p className="white-text">
-                      Here are some pattern names you might need for your final program ...
+                      Here are some sub-goal names you might need for your final program ...
                       Did you break down the problem in similar pieces? Go to the next step to
                       start with the final puzzle.
                     </p>
@@ -57,7 +40,7 @@ export default function HeadlineStep() {
             </MediaQuery>
             {/* right on max screens */}
             <MediaQuery minWidth={1200}>
-              <Container Row style={{ marginLeft: '0px', paddingLeft: '0px' }}>
+              <Container Row>
                 <HorizontalSpace />
                 <Row>
                   <Container>
@@ -65,7 +48,7 @@ export default function HeadlineStep() {
                       What to do here?
                     </h1>
                     <p className="white-text">
-                      Here are some pattern names you might need for your final program ...
+                      Here are some sub-goal names you might need for your final program ...
                       Did you break down the problem in similar pieces? Go to the next step to
                       start with the final puzzle.
                     </p>
@@ -78,6 +61,25 @@ export default function HeadlineStep() {
 
               </Container>
             </MediaQuery>
+          </Col>
+          {/* Blockly */}
+          <Col
+            xs={{ span: 12, order: 2 }}
+            sm={{ span: 12, order: 2 }}
+            md={{ span: 12, order: 2 }}
+            lg={{ span: 12, order: 2 }}
+            xl={{ span: 9, order: 1 }}
+            xxl={{ span: 9, order: 1 }}
+          >
+            <Row style={{ marginLeft: '0px', marginRight: '5px', paddingLeft: '0px' }}>
+              <HorizontalSpace />
+              <MyBlockly
+                readOnly
+                showOnlyTitle
+                resetButton={false}
+                movable={false}
+              />
+            </Row>
           </Col>
         </Row>
       </Container>

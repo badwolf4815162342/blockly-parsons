@@ -29,12 +29,24 @@ export default function ExplanationStep() {
                   Welcome to step 1 of the Exercise!
                 </h1>
                 <p className="white-text">
-                  At first try to think about how you would solve the
-                  problem, maybe try out scribbling some rough program
-                  plan on a piece of paper ... When you are finished, go
-                  to the next step.
+                  Take your time on this page.  Have a pen and some paper next to you.
+                  Don’t move on until you’ve worked through the following steps:
 
                 </p>
+                <ul className="white-text">
+                  <li>
+                    Read the problem statement - at least two or more times.
+                    Read every word!
+                  </li>
+                  <li>
+                    Think about how you would solve this problem, as a human.
+                    Think also of other problems you’ve seen like this.
+                  </li>
+                  <li>
+                    What pieces, or sub-goals, or patterns, come to your mind when
+                    you explore the problem?  Jot them down on the paper.
+                  </li>
+                </ul>
                 <ExerciseCard />
               </Col>
               <Col sm={2} />

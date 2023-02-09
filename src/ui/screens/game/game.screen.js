@@ -29,7 +29,7 @@ function GameScreen() {
                   <Button className="next-button-white" onClick={() => { next(); setStep(2); }}>
                     <Stack direction="horizontal">
                       <i style={{ fontSize: '20px', fontWeight: '800' }} className="material-icons">arrow_forward</i>
-                      <h5 style={{ marginBottom: '0px' }}>STEP 1 FINISHED</h5>
+                      <h5 style={{ marginBottom: '0px' }}>GO TO STEP 2</h5>
                     </Stack>
                   </Button>
                 </div>
@@ -47,7 +47,7 @@ function GameScreen() {
                   <Button className="next-button-white" onClick={() => { next(); setStep(3); setTries(0); }}>
                     <Stack direction="horizontal">
                       <i style={{ fontSize: '20px', fontWeight: '800' }} className="material-icons">arrow_forward</i>
-                      <h5 style={{ marginBottom: '0px' }}>STEP 2 FINISHED</h5>
+                      <h5 style={{ marginBottom: '0px' }}>GO TO STEP 3</h5>
                     </Stack>
                   </Button>
                 </div>

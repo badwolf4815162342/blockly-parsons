@@ -159,12 +159,12 @@ function GetWorksPace(props) {
         zoom:
    {
      controls: true,
-     wheel: false,
+     wheel: true,
      startScale: startZoomLevel,
      maxScale: 1.0,
      minScale: startZoomLevel,
      scaleSpeed: 1.2,
-     pinch: false,
+     pinch: true,
    },
         grid: {
           spacing: 20,

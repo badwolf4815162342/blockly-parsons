@@ -23,7 +23,7 @@ export default function WizardNavBar() {
         </Card>
         <VerticalSpace />
 
-        <div className="white-text">
+        <div className="light-red-text">
           ...
         </div>
         <VerticalSpace />
@@ -33,7 +33,7 @@ export default function WizardNavBar() {
         </Card>
         <VerticalSpace />
 
-        <div className="white-text">
+        <div className="light-red-text">
           ...
         </div>
         <VerticalSpace />

@@ -41,18 +41,18 @@ function ExercisesScreen() {
               a Blockly Parsons Puzzle (BPP).  In this version, we give a problem
               statement, as in a normal PP, only now, we give blocks of code (like
               Scratch if you’ve used that) and group them according to useful
-              patterns for solving the problem - each group has a name above it.
+              sub-goals for solving the problem - each group has a name above it.
               Your task is similar to a normal PP - you think of a plan or solution
               in your head, imagining the tasks you have to achieve to solve the
-              problem - and then you see how those tasks match to the pattern names
+              problem - and then you see how those tasks match to the sub-goal names
               that have been provided for each group.  Once you’ve matched your
-              plan to the patterns, you can click the blocks together to create
+              plan to the sub-goals, you can click the blocks together to create
               the program.  Like a PP, but not quite!
 
             </p>
             <p>
               Well - it’s probably easier to understand by doing it - so go ahead -
-              and note the pattern names are just blocks but with a red background -
+              and note the sub-goal names are just blocks but with a red background -
               they shouldn’t be part of the program!
 
             </p>

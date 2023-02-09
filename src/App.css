@@ -39,12 +39,12 @@ html {
   height: 30px !important;
  width: 30px !important ;
   text-decoration: none;
-  color: white;
+  color: #b27a5c;
  vertical-align: middle !important;
  text-align: center !important;
  border-radius: 50% !important;
  border-width: 0.1rem !important;
- border-color:  white !important;
+ border-color:  #b27a5c !important;
  text-align: center !important;
  background-color: #9A3A06  !important;
  padding-top: 2px;
@@ -55,13 +55,13 @@ html {
   height: 50px !important;
   width: 50px !important ;
   text-decoration: none;
-  color: white;
+  color: #b27a5c;
   font-size: xx-large !important;
   vertical-align: middle !important;
   text-align: center !important;
   border-radius: 50% !important;
  border-width: 0.2rem !important;
- border-color:  white !important;
+ border-color:  #b27a5c !important;
  background-color: #9A3A06  !important;
  text-align: center !important;
  }
@@ -101,6 +101,11 @@ html {
 
 .white-text {
   color: white !important;
+  text-decoration: none;
+}
+
+.light-red-text {
+  color: #b27a5c !important;
   text-decoration: none;
 }
 
@@ -253,9 +258,10 @@ body, html {
 .bg-home {
   background-image: url('uni2.jpeg');
   opacity: 0.9;
-  height: 120vh;
+  height: 200vh;
   background-repeat: no-repeat;
   background-position: top;
+  background-size: cover;
 }
 
 .dark-h1 {

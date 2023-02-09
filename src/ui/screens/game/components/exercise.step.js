@@ -134,6 +134,33 @@ export default function ExerciseStep() {
       />
       <Container fluid className="App">
         <Row>
+
+          {/* Right/Upper boxes */}
+          <Col xl={{ span: 3, order: 1 }} xxl={{ span: 3, order: 1 }}>
+            {/* top on min screens */}
+            <MediaQuery maxWidth={1199}>
+              <Row>
+                <Col xs={12} sm={12}>
+                  <HorizontalSpace />
+                  <ExerciseCard />
+                </Col>
+              </Row>
+              <HorizontalSpace />
+            </MediaQuery>
+            {/* right on max screens */}
+            <MediaQuery minWidth={1200}>
+              <Container>
+                <HorizontalSpace />
+                <Row>
+                  <ExerciseCard />
+                </Row>
+                <HorizontalSpace />
+                <Row>
+                  <ShowCodeCard isLoadingGame />
+                </Row>
+              </Container>
+            </MediaQuery>
+          </Col>
           {/* Blockly */}
           <Col
             xs={{ span: 12, order: 2 }}
@@ -152,32 +179,6 @@ export default function ExerciseStep() {
                 setModalShow={setShowTippsModal}
               />
             </Row>
-          </Col>
-          {/* Right/Upper boxes */}
-          <Col xl={{ span: 3, order: 1 }} xxl={{ span: 3, order: 1 }}>
-            {/* top on min screens */}
-            <MediaQuery maxWidth={1199}>
-              <Row>
-                <Col xs={12} sm={12}>
-                  <HorizontalSpace />
-                  <ExerciseCard />
-                </Col>
-              </Row>
-              <HorizontalSpace />
-            </MediaQuery>
-            {/* right on max screens */}
-            <MediaQuery minWidth={1200}>
-              <Container Row style={{ marginLeft: '0px', paddingLeft: '0px' }}>
-                <HorizontalSpace />
-                <Row>
-                  <ExerciseCard />
-                </Row>
-                <HorizontalSpace />
-                <Row>
-                  <ShowCodeCard isLoadingGame />
-                </Row>
-              </Container>
-            </MediaQuery>
           </Col>
         </Row>
         {/* Lower code box for min screens */}
@@ -226,7 +227,7 @@ function TippsModal(props) {
       <Modal.Body>
         <ExerciseStepExplanation />
         <HorizontalSpace />
-        <h4>Tipps:</h4>
+        <h4>Tips:</h4>
         <img src={`${process.env.PUBLIC_URL}/tips2.png`} alt="Tipps" width="600" className="img-fluid" />
       </Modal.Body>
       <Modal.Footer>
