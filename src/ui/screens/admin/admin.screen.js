@@ -5,15 +5,18 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ExercisesList from './componentes/exercise.list';
 import EditExercise from './componentes/edit.exercise';
+import LockingSwitch from './componentes/locking.switch';
 
 function Admin() {
   useEffect(() => {
   });
 
   return (
-    <div>
+    <div className="white-text">
       <h1>Hi Admin!</h1>
+
       <Container fluid className="App">
+        <Row><LockingSwitch /></Row>
         <Row>
           <Col><ExercisesList /></Col>
           <Col>

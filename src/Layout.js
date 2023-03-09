@@ -1,18 +1,16 @@
 import {
-  Link, Outlet, Navigate,
+  Link, Outlet,
   useLocation,
 } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Container, Stack } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
 import WizardNavBar from './ui/screens/game/components/wizard.navbar';
 import VerticalSpace from './ui/utils/verticalspace';
 
 function Layout() {
   const location = useLocation();
-  const [redirectToReferrer, setRedirectToReferrer] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -22,17 +20,6 @@ function Layout() {
       setLoggedIn(localStorage.getItem('isAuthenticated'));
     });
   }, []);
-
-  const handleLogout = () => {
-    localStorage.clear();
-    setRedirectToReferrer(true);
-  };
-
-  if (redirectToReferrer) {
-    return (
-      <Navigate to="/login" />
-    );
-  }
 
   return (
     <div className="bg">
@@ -72,7 +59,11 @@ function Layout() {
           <Navbar.Collapse className="justify-content-end">
             {isLoggedIn
             && (
-            <Button size="sm" onClick={handleLogout}>Logout</Button>
+            <Link className="nav-link" to="/" onClick={() => { setLoggedIn(false); }}>
+              <Stack direction="horizontal">
+                <h4 style={{ marginBottom: '0px' }}>Logout</h4>
+              </Stack>
+            </Link>
             )}
           </Navbar.Collapse>
         </Container>

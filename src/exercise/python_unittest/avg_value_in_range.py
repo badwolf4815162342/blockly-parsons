@@ -1,0 +1,70 @@
+import unittest
+from io import StringIO
+from unittest.mock import patch
+import sys
+
+def method():
+    list2 = None
+    start = None
+    end = None
+    sum2 = None
+    i = None
+    value = None
+    length = None
+    avg = None
+    def text_prompt(msg):
+        try:
+            return raw_input(msg)
+        except NameError:
+            return input(msg)
+    def upRange(start, stop, step):
+        while start <= stop:
+            yield start
+            start += abs(step)
+    def downRange(start, stop, step):
+        while start >= stop:
+            yield start
+            start -= abs(step)
+    list2 = text_prompt('Type in the list with numbers, start, end.')
+    start = list2[-2]
+    end = list2[-1]
+    sum2 = 0
+    for i in (start <= end) and upRange(start, end, 1) or downRange(start, end, 1):
+        value = list2[int(i - 1)]
+        sum2 = sum2 + value
+        length = (end - start) + 1
+    if length >= 1:
+        avg = sum2 / length
+        print('Avg = ' + str(avg))
+    else:
+        print('No avg.')
+
+class myTests(unittest.TestCase):
+    @patch('builtins.input',side_effect=[[5,3,7,1,7,15,30,2,5]])
+    def testOne(self, input):
+        capturedOutput = StringIO()          # Create StringIO object
+        sys.stdout = capturedOutput                   #  and redirect stdout.
+        method()                                  # Call unchanged function.
+        sys.stdout = sys.__stdout__                   # Reset redirect.
+        outputArray = capturedOutput.getvalue().split('\n')
+        if (len(outputArray)>1):
+            outputArray.pop()
+        self.assertEqual(outputArray,
+           ['Avg = 4.5'],)
+    @patch('builtins.input',side_effect=[[0,-1,-5,9,20,3,7,3]])
+    def testTwo(self, input):
+        capturedOutput = StringIO()          # Create StringIO object
+        sys.stdout = capturedOutput                   #  and redirect stdout.
+        method()                                  # Call unchanged function.
+        sys.stdout = sys.__stdout__                   # Reset redirect.
+        outputArray = capturedOutput.getvalue().split('\n')
+        if (len(outputArray)>1):
+            outputArray.pop()
+        self.assertEqual(outputArray,
+           ['No avg.'],)
+    
+tests = [myTests().testOne(),myTests().testTwo()]
+_test_result = tests[0]
+for test in tests:
+    if test is not None:
+        _test_result = test

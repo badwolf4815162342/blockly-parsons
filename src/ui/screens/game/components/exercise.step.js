@@ -25,8 +25,10 @@ export default function ExerciseStep() {
     actions: { setFeedback, setTries },
   } = useGame();
   const {
-    state: { currentExerciseNumber, exerciseList, showInformationModalOnEntry },
-    actions: { setExerciseList },
+    state: {
+      currentExerciseNumber, exerciseList, showInformationModalOnEntry, finishedNumber,
+    },
+    actions: { setExerciseList, setFinishedNumber },
   } = useExercises();
 
   const [isFeedbackLoading, setFeedbackLoading] = useState(false);
@@ -70,6 +72,12 @@ export default function ExerciseStep() {
     }
   };
 
+  function changeFinishedNumber(number) {
+    if (number > finishedNumber) {
+      setFinishedNumber(number);
+    }
+  }
+
   const saveFinalSubmit = async () => {
     console.log(exerciseList);
 
@@ -92,9 +100,10 @@ export default function ExerciseStep() {
       filterInPlace(newExerciseList, (e) => e.number !== currentExercise.number);
 
       newExerciseList.push(currentExercise);
-      newExerciseList.sort((a, b) => ((a.number < b.number) ? 1 : -1));
+      newExerciseList.sort((a, b) => ((a.number > b.number) ? 1 : -1));
 
       setExerciseList(newExerciseList);
+      changeFinishedNumber(currentExercise.number);
       console.log(exerciseList);
     } else {
       console.log('ERROR saving submit!!');
@@ -228,7 +237,7 @@ function TippsModal(props) {
         <ExerciseStepExplanation />
         <HorizontalSpace />
         <h4>Tips:</h4>
-        <img src={`${process.env.PUBLIC_URL}/tips2.png`} alt="Tipps" width="600" className="img-fluid" />
+        <img src={`${process.env.PUBLIC_URL}/tips.png`} alt="Tipps" width="600" className="img-fluid" />
       </Modal.Body>
       <Modal.Footer>
         <Form>

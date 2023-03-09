@@ -8,8 +8,9 @@ export default function ExercisesProvider({ children }) {
   const [exerciseList, setExerciseList] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [reset, setReset] = useState(false);
-
+  const [locking, setLocking] = useState(true);
   const [currentExerciseNumber, setCurrentExerciseNumber] = useState(null);
+  const [finishedNumber, setFinishedNumber] = useState(-1);
   const [showInformationModalOnEntry, setShowInformationModalOnEntry] = useState(true);
 
   const value = React.useMemo(() => ({
@@ -19,6 +20,8 @@ export default function ExercisesProvider({ children }) {
       exerciseList,
       currentExerciseNumber,
       showInformationModalOnEntry,
+      locking,
+      finishedNumber,
     },
     actions: {
       setReset,
@@ -26,9 +29,11 @@ export default function ExercisesProvider({ children }) {
       setExerciseList,
       setCurrentExerciseNumber,
       setShowInformationModalOnEntry,
+      setLocking,
+      setFinishedNumber,
     },
   }), [isLoading, exerciseList, currentExerciseNumber,
-    showInformationModalOnEntry, setCurrentExerciseNumber, setExerciseList]);
+    showInformationModalOnEntry, setCurrentExerciseNumber, setExerciseList, locking]);
 
   useEffect(() => {
     function loadExercises() {
@@ -60,6 +65,14 @@ export default function ExercisesProvider({ children }) {
         if (storageCurrentExerciseNumber) {
           setCurrentExerciseNumber(JSON.parse(storageCurrentExerciseNumber));
         }
+        const storageFinishedNumber = localStorage.getItem('finished');
+        if (storageFinishedNumber) {
+          setFinishedNumber(JSON.parse(storageFinishedNumber));
+        }
+        const storageLocking = localStorage.getItem('locking');
+        if (storageLocking) {
+          setLoading(JSON.parse(storageLocking));
+        }
       }
       if (storageExerciseList && !reset) {
         // load list from local storage
@@ -74,13 +87,16 @@ export default function ExercisesProvider({ children }) {
         localStorage.setItem('exercises', JSON.stringify(exerciseList));
         // set beginning currentExerciseNumber
         setCurrentExerciseNumber(0);
+        setFinishedNumber(-1);
         setLoading(false);
       }
     }
     // Save each time the exerciseList value changes
     localStorage.setItem('exercises', JSON.stringify(exerciseList));
+    localStorage.setItem('finished', JSON.stringify(finishedNumber));
+    localStorage.setItem('locking', JSON.stringify(locking));
     localStorage.setItem('currentExerciseNumber', JSON.stringify(currentExerciseNumber));
-  }, [isLoading, exerciseList, currentExerciseNumber, reset]);
+  }, [isLoading, exerciseList, currentExerciseNumber, reset, finishedNumber, locking]);
 
   return (
     <ExercisesContext.Provider value={value}>

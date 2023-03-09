@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
 import Stack from 'react-bootstrap/Stack';
 import React from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import {
-  Card, Row, Col, Container, Button,
+  Row, Col, Container, Button,
 } from 'react-bootstrap';
+import ExerciseCard from './Cards/exercise.card';
 import useExercises from '../../../core/provider/exercises/use';
 import HorizontalSpace from '../../utils/horizontalspace';
 
@@ -65,48 +65,10 @@ function ExercisesScreen() {
               <Row className="exercises">
                 {exerciseList.map((exercise) => (
                   <Col key={exercise.number}>
-                    <Card className={exercise.done ? 'yellow-card' : 'green-card'}>
-                      <Card.Body>
-                        <Card.Title className="white-text">{exercise.name}</Card.Title>
-                        <Card.Text>
-                          <Link onClick={() => selectExercise(exercise.number)} to="gamescreen">
-                            {exercise.done
-                              ? (
-                                <div>
-                                  <i style={{ fontSize: '30px' }} className="material-icons green-text">play_circle</i>
-                                  <hr />
-                                </div>
-                              )
-                              : <i style={{ fontSize: '50px' }} className="material-icons yellow-text">play_circle</i>}
-                          </Link>
-                          {exercise.done && (
-                            <Container fluid>
-                              <Stack direction="horizontal">
-                                <div>
-                                  Finished in
-                                  {(exercise.trys === 1)
-                                    ? (
-                                      <div>
-                                        {exercise.trys}
-                                        {' '}
-                                        try!
-                                      </div>
-                                    )
-                                    : (
-                                      <div>
-                                        {exercise.trys}
-                                        {' '}
-                                        tries!
-                                      </div>
-                                    )}
-                                </div>
-                                <i style={{ fontSize: '50px' }} className="material-icons green-text">done_outline</i>
-                              </Stack>
-                            </Container>
-                          )}
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
+                    <ExerciseCard
+                      selectExercise={selectExercise}
+                      exerciseNumber={exercise.number}
+                    />
                   </Col>
                 ))}
               </Row>
