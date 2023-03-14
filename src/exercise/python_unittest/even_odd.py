@@ -4,16 +4,9 @@ from io import StringIO
 import sys
 
 def method():
-    input_num = None
-    mod = None
-    def text_prompt(msg):
-        try:
-            return raw_input(msg)
-        except NameError:
-            return input(msg)
-    input_num = float(text_prompt('Type in a number.'))
-    mod = input_num % 2
-    if mod == 0:
+    input_num = input('Type a number:')
+    remainder = input_num % 2
+    if remainder == 0:
         print('Number is even.')
     else:
         print('Number is odd.')

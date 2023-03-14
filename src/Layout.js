@@ -59,7 +59,7 @@ function Layout() {
           <Navbar.Collapse className="justify-content-end">
             {isLoggedIn
             && (
-            <Link className="nav-link" to="/" onClick={() => { setLoggedIn(false); }}>
+            <Link className="nav-link" to="/" onClick={() => { setLoggedIn(false); localStorage.setItem('isAuthenticated', false); }}>
               <Stack direction="horizontal">
                 <h4 style={{ marginBottom: '0px' }}>Logout</h4>
               </Stack>

@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import ExercisesList from './componentes/exercise.list';
 import EditExercise from './componentes/edit.exercise';
 import LockingSwitch from './componentes/locking.switch';
+import IsGroupASwitch from './componentes/groupA.switch';
 
 function Admin() {
   useEffect(() => {
@@ -19,6 +20,7 @@ function Admin() {
         <Row><LockingSwitch /></Row>
         <Row>
           <Col><ExercisesList /></Col>
+          <Col><IsGroupASwitch /></Col>
           <Col>
             {' '}
             <EditExercise />

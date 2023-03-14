@@ -61,6 +61,17 @@ pythonGenerator.disabled_loop = function (block) {
   return code;
 };
 
+pythonGenerator.text_prompt_ext = function (block) {
+  const inputText = javascriptGenerator.valueToCode(block, 'TEXT', javascriptGenerator.ORDER_ADDITION) || '0';
+  console.log(inputText);
+  console.log(block);
+  let code = `input(${inputText})\n`;
+  if (inputText.includes('number.')) {
+    code = `float(input(${inputText}))\n`;
+  }
+  return [code, javascriptGenerator.ORDER_ADDITION];
+};
+
 Blockly.Blocks.new_boundary_function = {
   init() {
     this.appendDummyInput()

@@ -11,15 +11,60 @@
         },
         {
             "number": 1,
+            "name": "NEW: Logical AND.\nDifficulty: easy",
+            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/logical_and.xml",
+            "unittestFile": "/blockly-parsons-prod/exercises/unittest/logical_and.txt",
+            "trys": 0,
+            "startZoomLevel": 0.8,
+            "text": "Write a program that logically evaluates the <b>AND</b> for a list of booleans. <b>If and only if ALL values are True</b>, the program prints <b>True</b>, <b>otherwise False</b>."        
+        },
+        {
+            "number": 2,
+            "name": "NEW: Logical OR.\nDifficulty: easy",
+            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/logical_or.xml",
+            "unittestFile": "/blockly-parsons-prod/exercises/unittest/logical_or.txt",
+            "trys": 0,
+            "startZoomLevel": 0.8,
+            "text": "Write a program that logically evaluates the <b>OR</b> for a list of booleans. <b>If at least one value is True</b>, the program prints <b>True</b>, <b>otherwise False</b>."        
+        },
+        {
+            "number": 3,
+            "name": "NEW: Replace falses.\nDifficulty: easy",
+            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/replace_falses.xml",
+            "unittestFile": "/blockly-parsons-prod/exercises/unittest/replace_falses.txt",
+            "trys": 0,
+            "startZoomLevel": 0.7,
+            "text": "<p>Write a program that <b>reads in a list of booleans</b> and <b>replaces</b> all occurances of the value <b>False by True</b></p><p>For example when reading the list [True,True,False] you should in the end print the list [True,True,True].</p>"
+        },
+        {
+            "number": 4,
+            "name": "NEW: Count target values.\nDifficulty: easy",
+            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/count_target_values.xml",
+            "unittestFile": "/blockly-parsons-prod/exercises/unittest/count_target_values.txt",
+            "trys": 0,
+            "startZoomLevel": 0.8,
+            "text": "<p>One of the common things to do with a list is to <b>count the number</b> of times a <b>target value</b> appears in a list. Write a programm that counts the occurences of the <b>target value 5</b> in a <b>list you read in</b>.</p><p>For example the program should print out - The target was found this often: 0 - for the list [1, 2, 3] or - The target was found this often: 2 - for the list [5, 4, 5].</p>"
+        },
+        {
+            "number": 5,
             "name": "NEW: Filtered sum.\nDifficulty: easy",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/filtered_sum.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/filtered_sum.txt",
             "trys": 0,
             "startZoomLevel": 0.8,
-            "text": "Construct a program that <b>reads in a list</b> of numbers and returns the <b>sum</b> of all values in the list that are <b>single digit positive numbers</b>. Loop through all values in the list and add each one that matches the condition to the sum. <b>Print</b> the sum."
+            "text": "Construct a program that <b>reads in a list</b> of numbers and prints the <b>sum</b> of all values in the list that are <b>single digit positive numbers</b>. Loop through all values in the list and add each one that matches the condition to the sum. <b>Print</b> the sum."
         },
         {
-            "number": 2,
+            "number": 6,
+            "name": "NEW: Word start checker.\nDifficulty: easy",
+            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/word_start_checker.xml",
+            "unittestFile": "/blockly-parsons-prod/exercises/unittest/word_start_checker.txt",
+            "trys": 0,
+            "startZoomLevel": 0.8,
+            "text": "Construct a program that <b>reads in a list</b> of words and prints out if <b>all</b> words <b>start with the letter S</b> or not. You do not have to worry about upper or lower case!"
+        },
+        {
+            "number": 7,
             "name": "Guessing game.\nDifficulty: medium",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/guessing_game.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/guessing_game.txt",
@@ -28,7 +73,16 @@
             "text": "First we set a <b>guess number</b> (in this case it is set to 7). Now write a program that <b>reads in numbers</b> and <b>ends immediatly</b> when a <b>negative number is read</b>. Then check if each value matches the guess number. The program should also give <b>feedback</b> if the input is <b>too low</b> or <b>too high</b> and in the end <b>how many tries</b> it took."
         },
         {
-            "number": 3,
+            "number": 8,
+            "name": "Union of lists.\nDifficulty: medium",
+            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/union_list.xml",
+            "unittestFile": "/blockly-parsons-prod/exercises/unittest/union_list.txt",
+            "trys": 0,
+            "startZoomLevel": 0.7,
+            "text": "<p>Write a program that <b>reads in in two lists</b> and prints the <b>union of both lists</b>.</p><p>For example when given the two lists [5,3,7,-1] and [3,7,-5,0] the program prints ['5,3,7,-1,-5,0'].</p>"
+        },
+        {
+            "number": 9,
             "name": "Reverse word and wordlist.\nDifficulty: medium",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/reverse_word_and_wordlist.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/reverse_word_and_wordlist.txt",
@@ -37,7 +91,7 @@
             "text": "Given a <b>list of words</b> which make up a sentence, generate and <b>print</b> out a string which consists of <b>all the words in reverse order</b>, with <b>each word itself reversed too</b>.  Place a <b>space</b> after every word. For example, if the list of words contains “Hello” and “World” in that order, the string created would be “dlroW olleH “."
         },
         {
-            "number": 4,
+            "number": 10,
             "name": "Find even or odd and maximum in list.\nDifficulty: medium",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/find_max_and_even_odd.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/find_max_and_even_odd.txt",
@@ -46,16 +100,16 @@
             "text": "Write a program that <b>reads in numbers</b> and <b>ends immediatly</b> when a <b>negtive number is read</b>. For all the numbers in the list it should output <b>first</b> if the number is <b>even or odd</b> and <b>afterwards</b> whether it is the <b>current maximum</b>."
         },
         {
-            "number": 5,
+            "number": 11,
             "name": "NEW: Average value in range.\nDifficulty: medium",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/avg_value_in_range.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/avg_value_in_range.txt",
             "trys": 0,
             "startZoomLevel": 0.7,
-            "text": "<p>Construct a program that <b>reads a list of numbers</b>. This list consists of a variable number of values <b>followed by an additional number for the start and an additional one for the end of your range</b>. The program should print the <b>average</b> of the values between the start and end indices (inclusive). Check if the difference between the end index and the start index is 1 or higher. If so, <b>print the average of the values from start to end</b> and <b>otherwise print 0</b> (to prevent a divide by 0).</p><p>For example the list [5,3,7,1,7,15,30,2,5] with start 2 and end 5 should return 4.5.</p>"
+            "text": "<p>Construct a program that <b>reads a list of numbers</b>. This list consists of a variable number of values <b>followed by an additional number for the start and an additional one for the end of your range</b>. The program should print the <b>average</b> of the values between the start and end indices (inclusive). Check if the difference between the end index and the start index is 1 or higher. If so, <b>print the average of the values from start to end</b> and <b>otherwise print 0</b> (to prevent a divide by 0).</p><p>For example the list [5,3,7,1,7,15,30,2,5] with start 2 and end 5 should print 4.5.</p>"
         },
         {
-            "number": 6,
+            "number":12,
             "name": "Rainfall problem.\nDifficulty: advanced",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/rainfall.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/rainfall.txt",
@@ -64,7 +118,7 @@
             "text": "Let’s imagine that you have a list that contains amounts of rainfall for each day, collected by a meteorologist. Her rain gathering equipment occasionally makes a mistake and reports a negative amount for that day. We have to ignore those. We need to write a program to (a) calculate the total rainfall by adding up all the positive integers (and only the positive integers), (b) count the number of positive integers (we will count with “1.0” so that our average can have a decimal point), and (c) print out the average rainfall at the end. Only print the average if there was some rainfall, otherwise print “No rain”."
         },
         {
-            "number": 7,
+            "number": 13,
             "name": "NEW: Find longest.\nDifficulty: advanced",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/find_longest.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/find_longest.txt",
@@ -73,13 +127,13 @@
             "text": "<p>Write the find-longest program, which aims to find the <b>longest consecutive block</b> of the value <b>target</b> (in this case <b>10</b>) occurring in the <b>read</b> in list <b>numbers</b>.</p><p>For example, if the list numbers contains the values [7, 10, 10, 15, 15, 15, 15, 10, 10, 10, 15, 10] the program should print 3, the length of the longest consecutive block of 10s.</p>"
         },
         {
-            "number": 8,
+            "number": 14,
             "name": "NEW: Is level trail segment.\nDifficulty: advanced",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/is_level_trail_segment.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/is_level_trail_segment.txt",
             "trys": 0,
             "startZoomLevel": 0.6,
-            "text": "<p>Write a program which prints True when the trail segment is level and False otherwise. A trail segment is defined by a starting marker, an ending marker, and all markers between those two markers (including the start and end markers). The program should read a list of numbers and return true if the difference between the maximum elevation and the minimum elevation in the trail segment is less than or equal to 10 meters.</p> <p>To determine if the trail is level first set the min and max values to the value at the start index. Loop from the start index to the end index (inclusive). If the value at the current index is less than the min, set the min to the current value. If the value at the current index is greater than the max, set the max to the current value. Return true if the difference between the max and min is less than or equal to ten, otherwise return false.</p>"
+            "text": "<p>Write a program which prints True when the trail segment is level and False otherwise. A trail segment is defined by a starting marker, an ending marker, and all markers between those two markers (including the start and end markers). The program should read a list of numbers and print True if the difference between the maximum elevation and the minimum elevation in the trail segment is less than or equal to 10 meters.</p> <p>To determine if the trail is level first set the min and max values to the value at the start index. Loop from the start index to the end index (inclusive). If the value at the current index is less than the min, set the min to the current value. If the value at the current index is greater than the max, set the max to the current value. Print True if the difference between the max and min is less than or equal to 10, otherwise print False.</p>"
         }
     ]
 }

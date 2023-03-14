@@ -4,17 +4,9 @@ from io import StringIO
 import sys
 
 def method():
-  max2 = None
-  num = None
-  def text_prompt(msg):
-    try:
-      return raw_input(msg)
-    except NameError:
-      return input(msg)
+  num = input('Type first number.')
   max2 = 0
-  num = float(text_prompt('Type first number:'))
   while not num < 0:
-    # print(num)
     if num % 2 == 0:
       print('Number is even.')
     else:
@@ -22,7 +14,7 @@ def method():
     if num >= max2:
       print('This is the current max.')
       max2 = num
-    num = float(text_prompt('Type next number:'))
+    num = input('Type next number.')
 
 class myTests(unittest.TestCase):
     @patch('builtins.input',side_effect=['4','9','2','-1'])

@@ -4,9 +4,25 @@ from unittest.mock import patch
 import sys
 
 def method():
-{parsons_puzzle}
+    numbers = None
+    count = None
+    target = None
+    num = None
+    def text_prompt(msg):
+        try:
+            return raw_input(msg)
+        except NameError:
+            return input(msg)
+    numbers = text_prompt('Type in a list of numbers.')
+    count = 0
+    target = 3
+    for num in numbers:
+        if num == target:
+            count = count + 1
+    print('')
+
 class myTests(unittest.TestCase):
-    @patch('builtins.input',side_effect=[[5,3,7,1,7,15,30,2,5]])
+    @patch('builtins.input',side_effect=[[True,True,False]])
     def testOne(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.
@@ -16,8 +32,8 @@ class myTests(unittest.TestCase):
         if (len(outputArray)>1):
             outputArray.pop()
         self.assertEqual(outputArray,
-           ['Avg = 7.5'],)
-    @patch('builtins.input',side_effect=[[0,-1,-5,9,20,3,7,3]])
+           ['True'],)
+    @patch('builtins.input',side_effect=[[False,False,False,False,False]])
     def testTwo(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.
@@ -27,7 +43,7 @@ class myTests(unittest.TestCase):
         if (len(outputArray)>1):
             outputArray.pop()
         self.assertEqual(outputArray,
-           ['No avg.'],)
+           ['False'],)
     
 tests = [myTests().testOne(),myTests().testTwo()]
 _test_result = tests[0]

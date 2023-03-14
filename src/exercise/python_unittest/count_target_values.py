@@ -1,10 +1,55 @@
- def countTargetValues(target, numList):
+import unittest
+from io import StringIO
+from unittest.mock import patch
+import sys
+
+def method():
+    numbers = None
+    count = None
+    target = None
+    num = None
+    def text_prompt(msg):
+        try:
+            return raw_input(msg)
+        except NameError:
+            return input(msg)
+    numbers = text_prompt('Type in a list of numbers.')
     count = 0
-    for index in range(len(numList)):
-        current = numList[index]
-        if (current == target):
+    target = 3
+    for num in numbers:
+        if num == target:
             count = count + 1
-              return count
+    print('The target was found this often: ' + str(count))
+
+class myTests(unittest.TestCase):
+    @patch('builtins.input',side_effect=[[5,3,7,-1,3,7,-5,0]])
+    def testOne(self, input):
+        capturedOutput = StringIO()          # Create StringIO object
+        sys.stdout = capturedOutput                   #  and redirect stdout.
+        method()                                  # Call unchanged function.
+        sys.stdout = sys.__stdout__                   # Reset redirect.
+        outputArray = capturedOutput.getvalue().split('\n')
+        if (len(outputArray)>1):
+            outputArray.pop()
+        self.assertEqual(outputArray,
+           ['The target was found this often: 2'],)
+    @patch('builtins.input',side_effect=[[0,-1,-5]])
+    def testTwo(self, input):
+        capturedOutput = StringIO()          # Create StringIO object
+        sys.stdout = capturedOutput                   #  and redirect stdout.
+        method()                                  # Call unchanged function.
+        sys.stdout = sys.__stdout__                   # Reset redirect.
+        outputArray = capturedOutput.getvalue().split('\n')
+        if (len(outputArray)>1):
+            outputArray.pop()
+        self.assertEqual(outputArray,
+           ['The target was found this often: 0'],)
+    
+tests = [myTests().testOne(),myTests().testTwo()]
+_test_result = tests[0]
+for test in tests:
+    if test is not None:
+        _test_result = test
 
 
 
@@ -15,7 +60,13 @@
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/find_longest.txt",
             "trys": 0,
             "startZoomLevel": 0.6,
-            "text": "You can also count the number of items in a list between a start and end index (inclusive) that are equal to a target value, including the values at both the start and end indices. To do this initialize a count to zero and then loop from the start index to the end index (inclusive). Get the current value at the index. If the current value is equal to the target value increment the count. Return the count."
+            "text": "<p>One of the common things to do with a list is to <b>count the number</b> of times a <b>target value</b> appears in a list. Write a programm that counts the number of the <b>target value 5</b> in a <b>list you read in</b>.</p><p>For example the program should print out - The target was found this often: 0 - for the list [1, 2, 3] or - The target was found this often: 2 - for the list [5, 4, 5].</p>",
+}
+            
+            
+            
+            
+            You can also count the number of items in a list between a start and end index (inclusive) that are equal to a target value, including the values at both the start and end indices. To do this initialize a count to zero and then loop from the start index to the end index (inclusive). Get the current value at the index. If the current value is equal to the target value increment the count. Return the count."
         }
 
 

@@ -4,9 +4,24 @@ from unittest.mock import patch
 import sys
 
 def method():
-{parsons_puzzle}
+    booleans = None
+    index = None
+    boolean = None
+    def text_prompt(msg):
+        try:
+            return raw_input(msg)
+        except NameError:
+            return input(msg)
+    booleans = text_prompt('Type in list of booleans.')
+    index = 0
+    for boolean in booleans:
+        if not boolean:
+            list2[int(index)] = True
+    index = index + 1
+    print(booleans)
+
 class myTests(unittest.TestCase):
-    @patch('builtins.input',side_effect=[[5,3,7,1,7,15,30,2,5]])
+    @patch('builtins.input',side_effect=[[True,True,False]])
     def testOne(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.
@@ -16,8 +31,8 @@ class myTests(unittest.TestCase):
         if (len(outputArray)>1):
             outputArray.pop()
         self.assertEqual(outputArray,
-           ['Avg = 7.5'],)
-    @patch('builtins.input',side_effect=[[0,-1,-5,9,20,3,7,3]])
+           ['[True, True, True]'],)
+    @patch('builtins.input',side_effect=[[False,False,False,False,False]])
     def testTwo(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.
@@ -27,7 +42,7 @@ class myTests(unittest.TestCase):
         if (len(outputArray)>1):
             outputArray.pop()
         self.assertEqual(outputArray,
-           ['No avg.'],)
+           ['[True, True, True, True, True]'],)
     
 tests = [myTests().testOne(),myTests().testTwo()]
 _test_result = tests[0]

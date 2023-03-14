@@ -1,3 +1,4 @@
+
 import unittest
 from io import StringIO
 from unittest.mock import patch
@@ -6,7 +7,7 @@ import sys
 def method():
 {parsons_puzzle}
 class myTests(unittest.TestCase):
-    @patch('builtins.input',side_effect=[[5,3,7,1,7,15,30,2,5]])
+    @patch('builtins.input',side_effect=[[7, 10, 10, 15, 15, 15, 15, 10, 10, 10, 15, 10]])
     def testOne(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.
@@ -16,8 +17,8 @@ class myTests(unittest.TestCase):
         if (len(outputArray)>1):
             outputArray.pop()
         self.assertEqual(outputArray,
-           ['Avg = 7.5'],)
-    @patch('builtins.input',side_effect=[[0,-1,-5,9,20,3,7,3]])
+           ['Length = 3'],)
+    @patch('builtins.input',side_effect=[[0,-1,-5,200,-4,-4,-7,20]])
     def testTwo(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.
@@ -27,7 +28,7 @@ class myTests(unittest.TestCase):
         if (len(outputArray)>1):
             outputArray.pop()
         self.assertEqual(outputArray,
-           ['No avg.'],)
+           ['Length = 0'],)
     
 tests = [myTests().testOne(),myTests().testTwo()]
 _test_result = tests[0]

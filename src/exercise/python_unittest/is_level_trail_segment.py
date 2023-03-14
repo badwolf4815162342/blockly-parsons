@@ -4,18 +4,6 @@ from unittest.mock import patch
 import sys
 
 def method():
-    numbers = None
-    i = None
-    max2 = None
-    start = None
-    end = None
-    min2 = None
-    value = None
-    def text_prompt(msg):
-        try:
-            return raw_input(msg)
-        except NameError:
-            return input(msg)
     def upRange(start, stop, step):
         while start <= stop:
             yield start
@@ -24,13 +12,13 @@ def method():
         while start >= stop:
             yield start
             start -= abs(step)
-    numbers = text_prompt('Type in a lis of numbers.')
-    max2 = numbers[int(start - 1)]
+    numbers = input('Type in a lis of numbers.')
     start = 3
     end = 7
     min2 = numbers[int(start - 1)]
-    for i in (start <= end) and upRange(start, end, 1) or downRange(start, end, 1):
-        value = numbers[int(i - 1)]
+    max2 = numbers[int(start - 1)]
+    for index in (start <= end) and upRange(start, end, 1) or downRange(start, end, 1):
+        value = numbers[int(index)]
         if value > max2:
             max2 = value
         if value < min2:
@@ -38,7 +26,7 @@ def method():
     print(max2 + min2 <= 10)
 
 class myTests(unittest.TestCase):
-    @patch('builtins.input',side_effect=[[5,3,7,2,7,-5,0]])
+    @patch('builtins.input',side_effect=[[5,3,7,2,7,-5,0,3,2]])
     def testOne(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.

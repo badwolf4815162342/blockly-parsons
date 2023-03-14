@@ -77,9 +77,15 @@ export default function MyBlockly(props) {
     }
     if (pythonNotJS) {
       const codePyArray = codePy.split(/\r?\n|\r|\n/g);
-      const filtered = codePyArray.filter((line) => (line !== ''));
-      setPythonCodeString(filtered.join('\n'));
-      setPythonCodeArray(filtered);
+      const filteredA = codePyArray.filter((line) => (line !== ''));
+      const filteredB = filteredA.filter((line) => (!line.includes('= None')));
+      const replaced = [];
+      filteredB.forEach((ele) => {
+        replaced.push(ele.replace('index - 1', 'index'));
+      });
+      console.log(typeof replaced);
+      setPythonCodeString(replaced.join('\n'));
+      setPythonCodeArray(replaced);
     } else {
       const codeJS = javascriptGenerator.workspaceToCode(
         workspace,

@@ -62,7 +62,7 @@ function ExercisesScreen() {
           ? <div className="spinner"><Spinner animation="grow" /></div>
           : (
             <Container>
-              <Row className="exercises">
+              <Row className="exercises justify-content-start">
                 {exerciseList.map((exercise) => (
                   <Col key={exercise.number}>
                     <ExerciseCard
