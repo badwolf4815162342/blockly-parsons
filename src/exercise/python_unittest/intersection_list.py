@@ -4,21 +4,16 @@ from unittest.mock import patch
 import sys
 
 def method():
-    numbers = input('Type in a lis of numbers.')
-    start = 3
-    end = 7
-    max2 = numbers[int(start - 1)]
-    min2 = numbers[int(start - 1)]
-    for index in range(start, end):
-        value = numbers[int(index)]
-        if value > max2:
-            max2 = value
-        if value < min2:
-            min2 = value
-    print(max2 + min2 <= 10)
+    intersection_list = []
+    list1 = input('Type in a first list of numbers.')
+    list2 = input('Type in a second list of numbers.')
+    for item in list1:
+        if item in list2:
+            intersection_list.insert(0, item)
+    print(intersection_list)
 
 class myTests(unittest.TestCase):
-    @patch('builtins.input',side_effect=[[5,3,7,2,7,-5,0,3,2]])
+    @patch('builtins.input',side_effect=[[5,3,7,-1],[3,7,-5,0]])
     def testOne(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.
@@ -28,8 +23,8 @@ class myTests(unittest.TestCase):
         if (len(outputArray)>1):
             outputArray.pop()
         self.assertEqual(outputArray,
-           ['True'],)
-    @patch('builtins.input',side_effect=[[0,-1,-5,200,-4,-4,-7,20]])
+           ['[7, 3]'],)
+    @patch('builtins.input',side_effect=[[0,-1,-5],[2,3,0]])
     def testTwo(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.
@@ -39,7 +34,7 @@ class myTests(unittest.TestCase):
         if (len(outputArray)>1):
             outputArray.pop()
         self.assertEqual(outputArray,
-           ['False'],)
+           ['[0]'],)
     
 tests = [myTests().testOne(),myTests().testTwo()]
 _test_result = tests[0]

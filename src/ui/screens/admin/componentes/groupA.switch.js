@@ -1,4 +1,6 @@
-import Form from 'react-bootstrap/Form';
+import {
+  Button,
+} from 'react-bootstrap';
 import useExercises from '../../../../core/provider/exercises/use';
 
 function IsGroupASwitch() {
@@ -9,24 +11,29 @@ function IsGroupASwitch() {
     },
     actions:
         {
+          setReload,
           setIsGroupA,
-          setReset,
         },
   } = useExercises();
-
   return (
-    <Form>
-      <Form.Check
-        type="switch"
-        id="custom-switch"
-        label="Is the current group group A?"
-        defaultChecked={isGroupA}
-        onChange={() => {
+    <div>
+      <p>
+        You are in group
+        {' '}
+        {isGroupA ? 'A' : 'B'}
+      </p>
+      <Button
+        className="next-button-yellow"
+        onClick={() => {
+          setReload(true);
           setIsGroupA(!isGroupA);
-          setReset(true);
         }}
-      />
-    </Form>
+      >
+        Change to group
+        {' '}
+        {isGroupA ? 'B' : 'A'}
+      </Button>
+    </div>
   );
 }
 

@@ -7,6 +7,7 @@ import {
 import ExerciseCard from './Cards/exercise.card';
 import useExercises from '../../../core/provider/exercises/use';
 import HorizontalSpace from '../../utils/horizontalspace';
+import IsGroupASwitch from '../admin/componentes/groupA.switch';
 
 function ExercisesScreen() {
   const {
@@ -55,6 +56,15 @@ function ExercisesScreen() {
               and note the sub-goal names are just blocks but with a red background -
               they shouldn’t be part of the program!
 
+            </p>
+            <p>
+              <Container>
+                {(isLoading)
+                  ? <div className="spinner"><Spinner animation="grow" /></div>
+                  : (
+                    <IsGroupASwitch />
+                  )}
+              </Container>
             </p>
           </Container>
         </Container>

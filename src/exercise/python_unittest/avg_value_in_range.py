@@ -4,19 +4,11 @@ from unittest.mock import patch
 import sys
 
 def method():
-    def upRange(start, stop, step):
-        while start <= stop:
-            yield start
-            start += abs(step)
-    def downRange(start, stop, step):
-        while start >= stop:
-            yield start
-            start -= abs(step)
     list2 = input('Type in the list with numbers, start, end.')
     start = list2[-2]
     end = list2[-1]
     sum2 = 0
-    for index in (start <= end) and upRange(start, end, 1) or downRange(start, end, 1):
+    for index in range(start, end+1):
         value = list2[int(index)]
         sum2 = sum2 + value
     length = (end - start) + 1

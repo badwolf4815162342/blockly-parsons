@@ -4,22 +4,10 @@ from unittest.mock import patch
 import sys
 
 def method():
-    numbers = input('Type in a lis of numbers.')
-    start = 3
-    end = 7
-    max2 = numbers[int(start - 1)]
-    min2 = numbers[int(start - 1)]
-    for index in range(start, end):
-        value = numbers[int(index)]
-        if value > max2:
-            max2 = value
-        if value < min2:
-            min2 = value
-    print(max2 + min2 <= 10)
-
+{parsons_puzzle}
 class myTests(unittest.TestCase):
-    @patch('builtins.input',side_effect=[[5,3,7,2,7,-5,0,3,2]])
-    def testOne(self, input):
+    @patch('builtins.input',side_effect=['Irland','Spain','Argentinia','-'])
+    def testExit(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.
         method()                                  # Call unchanged function.
@@ -28,9 +16,10 @@ class myTests(unittest.TestCase):
         if (len(outputArray)>1):
             outputArray.pop()
         self.assertEqual(outputArray,
-           ['True'],)
-    @patch('builtins.input',side_effect=[[0,-1,-5,200,-4,-4,-7,20]])
-    def testTwo(self, input):
+           ['The correct country starts with a letter later in alphabet.', 'The correct country starts with a letter earlier in alphabet.', 'The correct country starts with a letter later in alphabet.'],)
+
+    @patch('builtins.input',side_effect=['Scotland','Australia','New Zealand'])
+    def testFound(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.
         method()                                  # Call unchanged function.
@@ -39,9 +28,9 @@ class myTests(unittest.TestCase):
         if (len(outputArray)>1):
             outputArray.pop()
         self.assertEqual(outputArray,
-           ['False'],)
+           ['The correct country starts with a letter earlier in alphabet.', 'The correct country starts with a letter later in alphabet.', 'Right! I love New Zealand. Number of Tries: 3'],)
     
-tests = [myTests().testOne(),myTests().testTwo()]
+tests = [myTests().testExit(),myTests().testFound()]
 _test_result = tests[0]
 for test in tests:
     if test is not None:

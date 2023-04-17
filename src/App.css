@@ -131,6 +131,14 @@ html {
 
 }
 
+.next-button-yellow {
+  background-color: #ffb948 !important;
+  border-radius: 0 !important;
+  border-color: #ffb948 !important;
+  font-weight: 500 !important;
+  color: #385A4F !important;
+}
+
 h4 {
   font-size: 18px !important;
   font-weight: 600 !important;

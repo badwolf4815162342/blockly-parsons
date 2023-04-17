@@ -48,5 +48,10 @@ export default async function UnitTestGrader(studentCodeString, unitTestCode, in
     result = reduceLineNumbers(e.toString());
   }
 
+  if (result) {
+    if (result.includes("AssertionError")) {
+      result = "AssertionError" + result.split("AssertionError")[1];
+    }
+  }
   return { success: success, result: result };
 }

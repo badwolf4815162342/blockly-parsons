@@ -4,27 +4,14 @@ from unittest.mock import patch
 import sys
 
 def method():
-    list1 = None
-    list2 = None
-    union_list = None
-    item = None
-    def text_prompt(msg):
-        try:
-            return raw_input(msg)
-        except NameError:
-            return input(msg)
-    def first_index(my_list, elem):
-        try: index = my_list.index(elem) + 1
-        except: index = 0
-        return index
-    list1 = text_prompt('Type in a first list of numbers.')
-    list2 = text_prompt('Type in a second list of numbers.')
+    list1 = input('Type in a first list of numbers.')
+    list2 = input('Type in a second list of numbers.')
     union_list = []
     for item in list1:
-        if 0 == first_index(union_list, item):
+        if item not in union_list:
             union_list.insert(0, item)
     for item in list2:
-        if 0 == first_index(union_list, item):
+        if item not in union_list:
             union_list.insert(0, item)
     print(union_list)
 

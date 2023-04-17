@@ -1,85 +1,94 @@
 {
     "exercises": [
         {
-            "number": 0,
-            "name": "B: Even or odd.\nDifficulty: easy",
-            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/even_odd.xml",
-            "unittestFile": "/blockly-parsons-prod/exercises/unittest/even_odd.txt",
+            "number": 10,
+            "name": "B: New: Divisible by 3.\nDifficulty: easy",
+            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/divisible_by_3.xml",
+            "unittestFile": "/blockly-parsons-prod/exercises/unittest/divisible_by_3.txt",
             "trys": 0,
             "startZoomLevel": 0.8,
-            "text": "Report whether an <b>input</b> number is <b>even</b> or <b>odd</b>."
+            "testingOutput":"<p><b>Input:</b> [3,27,9], <b>Required output:</b> All numbers are divisible by 3.</p><p><b>Input:</b> [4,12,15,3], <b>Required output:</b> Some numbers are not divisible by 3.</p>",
+            "text": "Construct a program that <b>reads in a list</b> of numbers and prints out if <b>all</b> numbers <b>are divisible by 3 (remainder 0)</b> or not."
         },
         {
-            "number": 1,
-            "name": "B: NEW: Filtered sum.\nDifficulty: easy",
-            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/filtered_sum.xml",
-            "unittestFile": "/blockly-parsons-prod/exercises/unittest/filtered_sum.txt",
-            "trys": 0,
-            "startZoomLevel": 0.8,
-            "text": "Construct a program that <b>reads in a list</b> of numbers and returns the <b>sum</b> of all values in the list that are <b>single digit positive numbers</b>. Loop through all values in the list and add each one that matches the condition to the sum. <b>Print</b> the sum."
-        },
-        {
-            "number": 2,
-            "name": "B: Guessing game.\nDifficulty: medium",
-            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/guessing_game.xml",
-            "unittestFile": "/blockly-parsons-prod/exercises/unittest/guessing_game.txt",
+            "number": 11,
+            "name": "B: New: Guessing country.\nDifficulty: medium",
+            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/guess_country.xml",
+            "unittestFile": "/blockly-parsons-prod/exercises/unittest/guess_country.txt",
             "trys": 0,
             "startZoomLevel": 0.6,
-            "text": "First we set a <b>guess number</b> (in this case it is set to 7). Now write a program that <b>reads in numbers</b> and <b>ends immediatly</b> when a <b>negative number is read</b>. Then check if each value matches the guess number. The program should also give <b>feedback</b> if the input is <b>too low</b> or <b>too high</b> and in the end <b>how many tries</b> it took."
+            "testingOutput":"<p><b>Input:</b> 'Irland','Spain','Argentinia','-', <b>Required output:</b> 'The correct country starts with a letter later in alphabet.', 'The correct country starts with a letter earlier in alphabet.', 'The correct country starts with a letter later in alphabet.'</p><p><b>Input:</b> 'Scotland','Australia','New Zealand', <b>Required output:</b> 'The correct country starts with a letter earlier in alphabet.', 'The correct country starts with a letter later in alphabet.', 'Right! I love New Zealand. Number of Tries: 3'</p>",
+            "text": "This program should read in suggestions for what you think is my favorite country. First we set <b>my favorite country</b> (Psst ... it is New Zealand). Now write a program that <b>reads in words</b> and <b>ends immediatly</b> when a <b>'-'</b> is read or the guess was correct. Then check if the guess value matches my favorite country. You do not have to worry about upper or lower case, every word will start with an upper case letter and have otherwise lowercase ones. The program should also give <b>feedback</b> if the guessed country has it's <b>first letter later or earlier in alphabet</b> compared to the correct country and in the end <b>how many tries</b> it took."
         },
         {
-            "number": 3,
+            "number": 12,
+            "name": "B: New: Intersection of lists.\nDifficulty: medium",
+            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/intersection_list.xml",
+            "unittestFile": "/blockly-parsons-prod/exercises/unittest/intersection_list.txt",
+            "trys": 0,
+            "startZoomLevel": 0.7,
+            "testingOutput":"<p><b>Input:</b> [5,3,7,-1],[3,7,-5,0], <b>Required output:</b> [7, 3]</p><p><b>Input:</b> [0,-1,-5],[2,3,0], <b>Required output:</b> [0]</p>",
+            "text": "<p>Write a program that <b>reads in two lists</b> and prints the <b>intersection of both lists</b>.</p><p>For example when given the two lists [5,3,7,-1] and [3,7,-5,0] the program prints '[7, 3]'.</p><p>Note: The function 'in list [list2] find first occurance of item [item]' returns 0 if the item is not found.</p>"
+        },
+        {
+            "number": 13,
+            "name": "B: New: Find min and divisible by 3.\nDifficulty: medium",
+            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/find_min_and_divisible_by_3.xml",
+            "unittestFile": "/blockly-parsons-prod/exercises/unittest/find_min_and_divisible_by_3.txt",
+            "trys": 0,
+            "startZoomLevel": 0.8,
+            "testingOutput":"<p><b>Input:</b> '4','9','2','-1', <b>Required output:</b> 'This is the current min.','This is the current minimum.','The minimum is also prime.'</p>",
+            "text": "Write a program that <b>reads in numbers</b> and <b>ends immediatly</b> when a <b>negtive number is read</b>. For all the numbers in the list it should <b>output 'This is the current minimum.'</b> when it is the current minimum, and <b>when it is</b>, print also if it is <b>divisible by 3</b>."
+        },
+        {
+            "number": 14,
             "name": "B: Reverse word and wordlist.\nDifficulty: medium",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/reverse_word_and_wordlist.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/reverse_word_and_wordlist.txt",
             "trys": 0,
             "startZoomLevel": 0.9,
+            "testingOutput":"<p><b>Input:</b> <no input>, <b>Required output:</b> ecnO nopu a emit ni dnaletisoppo </p>",
             "text": "Given a <b>list of words</b> which make up a sentence, generate and <b>print</b> out a string which consists of <b>all the words in reverse order</b>, with <b>each word itself reversed too</b>.  Place a <b>space</b> after every word. For example, if the list of words contains “Hello” and “World” in that order, the string created would be “dlroW olleH “."
         },
         {
-            "number": 4,
-            "name": "B: Find even or odd and maximum in list.\nDifficulty: medium",
-            "baseXmlFile": "/blockly-parsons-prod/exercises/xml/find_max_and_even_odd.xml",
-            "unittestFile": "/blockly-parsons-prod/exercises/unittest/find_max_and_even_odd.txt",
-            "trys": 0,
-            "startZoomLevel": 0.8,
-            "text": "Write a program that <b>reads in numbers</b> and <b>ends immediatly</b> when a <b>negtive number is read</b>. For all the numbers in the list it should output <b>first</b> if the number is <b>even or odd</b> and <b>afterwards</b> whether it is the <b>current maximum</b>."
-        },
-        {
-            "number": 5,
+            "number": 15,
             "name": "B: NEW: Average value in range.\nDifficulty: medium",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/avg_value_in_range.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/avg_value_in_range.txt",
             "trys": 0,
             "startZoomLevel": 0.7,
-            "text": "<p>Construct a program that <b>reads a list of numbers</b>. This list consists of a variable number of values <b>followed by an additional number for the start and an additional one for the end of your range</b>. The program should print the <b>average</b> of the values between the start and end indices (inclusive). Check if the difference between the end index and the start index is 1 or higher. If so, <b>print the average of the values from start to end</b> and <b>otherwise print 0</b> (to prevent a divide by 0).</p><p>For example the list [5,3,7,1,7,15,30,2,5] with start 2 and end 5 should return 4.5.</p>"
+            "testingOutput":"<p><b>Input:</b> [5,3,7,1,7,15,30,2,5], <b>Required output:</b> Avg = 7.5</p><p><b>Input:</b> [0,-1,-5,9,20,3,7,3], <b>Required output:</b> No avg.</p>",
+            "text": "<p>Construct a program that <b>reads a list of numbers</b>. This list consists of a variable number of values <b>followed by an additional number for the start index and a second additional number for the end index of a range of values within the list</b>. The program should print the <b>average</b> of the values between the start and end indices (inclusive). Check if the difference between the end index and the start index is 1 or higher. If so, <b>print the average of the values from start to end</b> and <b>otherwise print 'No avg.'</b> (to prevent a divide by 0).</p><p>For example the list [5,3,7,1,7,15,30,2,5] with start 2 and end 5 should print 7.5. NOTE: the indices start from 0 and the end value is included (also not like Python).</p>"
         },
         {
-            "number": 6,
+            "number":16,
             "name": "B: Rainfall problem.\nDifficulty: advanced",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/rainfall.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/rainfall.txt",
             "trys": 0,
             "startZoomLevel": 0.5,
+            "testingOutput":"<p><b>Input:</b> [5,3,7,-1,7,-5,0], <b>Required output:</b> Avg =5.5</p><p><b>Input:</b> [0,-1,-5], <b>Required output:</b> no rain</p>",
             "text": "Let’s imagine that you have a list that contains amounts of rainfall for each day, collected by a meteorologist. Her rain gathering equipment occasionally makes a mistake and reports a negative amount for that day. We have to ignore those. We need to write a program to (a) calculate the total rainfall by adding up all the positive integers (and only the positive integers), (b) count the number of positive integers (we will count with “1.0” so that our average can have a decimal point), and (c) print out the average rainfall at the end. Only print the average if there was some rainfall, otherwise print “No rain”."
         },
         {
-            "number": 7,
+            "number": 17,
             "name": "B: NEW: Find longest.\nDifficulty: advanced",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/find_longest.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/find_longest.txt",
             "trys": 0,
             "startZoomLevel": 0.6,
-            "text": "<p>Write the find-longest program, which aims to find the <b>longest consecutive block</b> of the value <b>target</b> (in this case <b>10</b>) occurring in the <b>read</b> in list <b>numbers</b>.</p><p>For example, if the list numbers contains the values [7, 10, 10, 15, 15, 15, 15, 10, 10, 10, 15, 10] the program should print 3, the length of the longest consecutive block of 10s.</p>"
+            "testingOutput":"<p><b>Input:</b> [7, 10, 10, 15, 15, 15, 15, 10, 10, 10, 15, 10], <b>Required output:</b> Length = 3</p><p><b>Input:</b> [0,-1,-5,200,-4,-4,-7,20], <b>Required output:</b> Length = 0</p>",
+            "text": "<p>Write the find-longest program, which aims to find the <b>longest consecutive block</b> of the value <b>target</b> (in this case <b>10</b>) occurring in the read in list <b>numbers</b>.</p><p>For example, if the list numbers contains the values [7, 10, 10, 15, 15, 15, 15, 10, 10, 10, 15, 10] the program should print 3, the length of the longest consecutive block of 10s.</p>"
         },
         {
-            "number": 8,
+            "number": 18,
             "name": "B: NEW: Is level trail segment.\nDifficulty: advanced",
             "baseXmlFile": "/blockly-parsons-prod/exercises/xml/is_level_trail_segment.xml",
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/is_level_trail_segment.txt",
             "trys": 0,
             "startZoomLevel": 0.6,
-            "text": "<p>Write a program which prints True when the trail segment is level and False otherwise. A trail segment is defined by a starting marker, an ending marker, and all markers between those two markers (including the start and end markers). The program should read a list of numbers and return true if the difference between the maximum elevation and the minimum elevation in the trail segment is less than or equal to 10 meters.</p> <p>To determine if the trail is level first set the min and max values to the value at the start index. Loop from the start index to the end index (inclusive). If the value at the current index is less than the min, set the min to the current value. If the value at the current index is greater than the max, set the max to the current value. Return true if the difference between the max and min is less than or equal to ten, otherwise return false.</p>"
+            "testingOutput":"<p><b>Input:</b> [5,3,7,2,7,-5,0,3,2], <b>Required output:</b> True</p><p><b>Input:</b> [0,-1,-5,200,-4,-4,-7,20], <b>Required output:</b> False</p>",
+            "text": "<p>A trail segment (for running, walking, cycling, etc) is a list of numbers (known as markers) representing a sequence of heights along the trail.  There is always a start and an end marker, and maybe more markers in between.</p><p>Write a program to <b>read a list of numbers</b> for a trail segment and <b>print True if the segment is “level”and false otherwise</b>.  A trail segment is level if the <b>difference between the maximum and minimum</b> elevation on the segment is <b>less than or equal to 10</b> metres.</p>"
         }
     ]
 }

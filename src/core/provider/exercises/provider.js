@@ -9,6 +9,7 @@ export default function ExercisesProvider({ children }) {
   const [exerciseList, setExerciseList] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [reset, setReset] = useState(false);
+  const [reload, setReload] = useState(false);
   const [locking, setLocking] = useState(false);
   const [isGroupA, setIsGroupA] = useState(true);
   const [currentExerciseNumber, setCurrentExerciseNumber] = useState(null);
@@ -18,6 +19,7 @@ export default function ExercisesProvider({ children }) {
   const value = React.useMemo(() => ({
     state: {
       reset,
+      reload,
       isLoading,
       exerciseList,
       currentExerciseNumber,
@@ -28,6 +30,7 @@ export default function ExercisesProvider({ children }) {
     },
     actions: {
       setReset,
+      setReload,
       setLoading,
       setExerciseList,
       setCurrentExerciseNumber,
@@ -52,6 +55,7 @@ export default function ExercisesProvider({ children }) {
               unittest: exercise.unittestFile, // 'reader.readAsText(exercise.unittestFile)',
               trys: exercise.trys,
               startZoomLevel: exercise.startZoomLevel,
+              testingOutput: exercise.testingOutput,
               text: exercise.text,
               done: false,
             });
@@ -67,6 +71,7 @@ export default function ExercisesProvider({ children }) {
               unittest: exercise.unittestFile, // 'reader.readAsText(exercise.unittestFile)',
               trys: exercise.trys,
               startZoomLevel: exercise.startZoomLevel,
+              testingOutput: exercise.testingOutput,
               text: exercise.text,
               done: false,
             });
@@ -74,16 +79,17 @@ export default function ExercisesProvider({ children }) {
         });
       }
       setReset(false);
+      setReload(false);
       setExerciseList(initialState);
       // set beginning currentExerciseNumber
       setCurrentExerciseNumber(0);
       setFinishedNumber(-1);
     }
-    if (exerciseList.length === 0 || reset) {
+    if (exerciseList.length === 0 || reset || reload) {
       setLoading(true);
       const storageExerciseList = localStorage.getItem('exercises');
       // reload currentExerciseNumber if refresh was done
-      if (!currentExerciseNumber) {
+      if (!currentExerciseNumber && !reload) {
         const storageCurrentExerciseNumber = localStorage.getItem('currentExerciseNumber');
         if (storageCurrentExerciseNumber) {
           setCurrentExerciseNumber(JSON.parse(storageCurrentExerciseNumber));
@@ -98,10 +104,14 @@ export default function ExercisesProvider({ children }) {
         }
         const storageIsGroupA = localStorage.getItem('isGroupA');
         if (storageIsGroupA) {
-          setIsGroupA(JSON.parse(storageIsGroupA));
+          if (storageIsGroupA !== isGroupA) {
+            setIsGroupA(JSON.parse(storageIsGroupA));
+            console.log('Set group from storage');
+            console.log(storageIsGroupA);
+          }
         }
       }
-      if (storageExerciseList && !reset) {
+      if (storageExerciseList && !reset && !reload) {
         // load list from local storage
         console.log(JSON.parse(storageExerciseList));
         if (JSON.stringify(exerciseList) !== JSON.stringify(storageExerciseList)) {
@@ -120,6 +130,8 @@ export default function ExercisesProvider({ children }) {
     localStorage.setItem('finished', JSON.stringify(finishedNumber));
     localStorage.setItem('locking', JSON.stringify(locking));
     localStorage.setItem('isGroupA', JSON.stringify(isGroupA));
+    console.log('Save group to storage');
+    console.log(isGroupA);
     localStorage.setItem('currentExerciseNumber', JSON.stringify(currentExerciseNumber));
   }, [isLoading, exerciseList, currentExerciseNumber, reset, finishedNumber, locking, isGroupA]);
 

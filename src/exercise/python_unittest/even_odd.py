@@ -4,7 +4,7 @@ from io import StringIO
 import sys
 
 def method():
-    input_num = input('Type a number:')
+    input_num = input('Type a number.')
     remainder = input_num % 2
     if remainder == 0:
         print('Number is even.')

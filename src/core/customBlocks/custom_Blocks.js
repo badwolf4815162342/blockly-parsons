@@ -62,7 +62,7 @@ pythonGenerator.disabled_loop = function (block) {
 };
 
 pythonGenerator.text_prompt_ext = function (block) {
-  const inputText = javascriptGenerator.valueToCode(block, 'TEXT', javascriptGenerator.ORDER_ADDITION) || '0';
+  const inputText = pythonGenerator.valueToCode(block, 'TEXT', javascriptGenerator.ORDER_ADDITION) || '0';
   console.log(inputText);
   console.log(block);
   let code = `input(${inputText})\n`;
@@ -70,6 +70,17 @@ pythonGenerator.text_prompt_ext = function (block) {
     code = `float(input(${inputText}))\n`;
   }
   return [code, javascriptGenerator.ORDER_ADDITION];
+};
+
+pythonGenerator.controls_for = function (block) {
+  const from = pythonGenerator.valueToCode(block, 'FROM', javascriptGenerator.ORDER_ADDITION) || '0';
+  const to = pythonGenerator.valueToCode(block, 'TO', javascriptGenerator.ORDER_ADDITION) || '0';
+  const statement = pythonGenerator.statementToCode(block, 'DO');
+  console.log(from);
+  console.log(to);
+  console.log(block);
+  const code = `for index in range(${from}, ${to}+1):\n${statement}`;
+  return code;
 };
 
 Blockly.Blocks.new_boundary_function = {
