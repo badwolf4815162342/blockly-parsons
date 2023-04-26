@@ -14,7 +14,7 @@ const blocklibrary = `<xml xmlns="https://developers.google.com/blockly/xml">
   <field name="TEXT">Title: Read values</field>
 </block>
 <block type="text" id="lWVs-Z;,4?GoQcSFqP$g" x="362" y="38">
-  <field name="TEXT">Title: Find Maximum</field>
+  <field name="TEXT">Title: Find extreme value</field>
 </block>
 <block type="variables_set" id="Y.$wri/Q+NJDrXBq,NdI" x="63" y="87">
   <field name="VAR" id="4oTv|8O2h7FpX1?{XIYq">num</field>
