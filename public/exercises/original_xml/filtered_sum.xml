@@ -117,7 +117,7 @@
         <field name="TEXT">abc</field>
       </shadow>
       <block type="text" id="Em+nUizHwNx.1fOvRcWx">
-        <field name="TEXT">Title: Print sum</field>
+        <field name="TEXT">Title: Print result</field>
       </block>
     </value>
   </block>

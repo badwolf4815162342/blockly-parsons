@@ -116,7 +116,7 @@
         <field name="TEXT" editable="false" movable="false">abc</field>
       </shadow>
       <block type="text" id="Em+nUizHwNx.1fOvRcWx" editable="false" movable="false">
-        <field name="TEXT" editable="false" movable="false">Print sum</field>
+        <field name="TEXT" editable="false" movable="false">Print result</field>
       </block>
     </value>
   </block>

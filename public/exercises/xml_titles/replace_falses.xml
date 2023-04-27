@@ -11,7 +11,7 @@
         <field name="TEXT" editable="false" movable="false">abc</field>
       </shadow>
       <block type="text" id="]UWg%ev3_a-zs4c@VBvT" editable="false" movable="false">
-        <field name="TEXT" editable="false" movable="false">Read in booleans</field>
+        <field name="TEXT" editable="false" movable="false">Read in list of booleans</field>
       </block>
     </value>
   </block>
@@ -51,7 +51,7 @@
         <field name="TEXT" editable="false" movable="false">abc</field>
       </shadow>
       <block type="text" id="oq-x}wCf@D-KqCjtB%fM" editable="false" movable="false">
-        <field name="TEXT" editable="false" movable="false">Replace 'false' item with 'true'</field>
+        <field name="TEXT" editable="false" movable="false">Set variable with value 'false' to 'true'</field>
       </block>
     </value>
   </block>

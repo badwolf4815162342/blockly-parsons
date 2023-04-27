@@ -9,17 +9,7 @@
         <field name="TEXT" editable="false" movable="false">abc</field>
       </shadow>
       <block type="text" id="8NOQ_t!lst{3Q-.2S$%G" editable="false" movable="false">
-        <field name="TEXT" editable="false" movable="false">Decide whether even/odd</field>
-      </block>
-    </value>
-  </block>
-  <block type="group_title" id="|-^i8a_PX#fT0Jw!tD:/" x="13" y="268" editable="false" deletable="false" contextMenu="false" enableContextMenu="false" movable="true">
-    <value name="TEXT" editable="false" movable="false">
-      <shadow type="text" id="Xj-=E?w*kV6NjL^-_pjQ" editable="false" movable="false">
-        <field name="TEXT" editable="false" movable="false">abc</field>
-      </shadow>
-      <block type="text" id="|516-HK=?R6L7mIQokGb" editable="false" movable="false">
-        <field name="TEXT" editable="false" movable="false">Get user input</field>
+        <field name="TEXT" editable="false" movable="false">Alternate: even/odd</field>
       </block>
     </value>
   </block>

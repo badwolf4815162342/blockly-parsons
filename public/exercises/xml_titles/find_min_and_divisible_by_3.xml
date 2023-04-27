@@ -10,7 +10,7 @@
         <field name="TEXT" editable="false" movable="false">abc</field>
       </shadow>
       <block type="text" id="^Z*vE+iAK=-pWQVe[u#1" editable="false" movable="false">
-        <field name="TEXT" editable="false" movable="false">Loop over values until sentinel reached</field>
+        <field name="TEXT" editable="false" movable="false">Read in values until negative is found</field>
       </block>
     </value>
   </block>
@@ -20,7 +20,7 @@
         <field name="TEXT" editable="false" movable="false">abc</field>
       </shadow>
       <block type="text" id="NnOblZEvmbkTZuS;e=D2" editable="false" movable="false">
-        <field name="TEXT" editable="false" movable="false">Is number divisible by 3</field>
+        <field name="TEXT" editable="false" movable="false">Alternate: Is number divisible by 3/not divisible by 3</field>
       </block>
     </value>
   </block>

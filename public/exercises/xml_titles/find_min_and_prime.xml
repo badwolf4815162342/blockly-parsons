@@ -10,7 +10,7 @@
         <field name="TEXT" editable="false" movable="false">abc</field>
       </shadow>
       <block type="text" id="^Z*vE+iAK=-pWQVe[u#1" editable="false" movable="false">
-        <field name="TEXT" editable="false" movable="false">Loop over values until sentinel reached</field>
+        <field name="TEXT" editable="false" movable="false">Read in values until negative is found</field>
       </block>
     </value>
   </block>
