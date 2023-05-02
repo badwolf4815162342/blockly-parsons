@@ -37,7 +37,7 @@
             "unittestFile": "/blockly-parsons-prod/exercises/unittest/find_min_and_divisible_by_3.txt",
             "trys": 0,
             "startZoomLevel": 0.8,
-            "testingOutput":"<p><b>Input:</b> '4','9','2','-1', <b>Required output:</b> 'This is the current min.','This is the current minimum.','The minimum is also prime.'</p>",
+            "testingOutput":"<p><b>Input:</b> '4','9','3','-1', <b>Required output:</b> 'This is the current minimum.','This is the current minimum.','The minimum is also divisible by 3.'</p>",
             "text": "Write a program that <b>reads in numbers</b> and <b>ends immediatly</b> when a <b>negtive number is read</b>. For all the numbers in the list it should <b>output 'This is the current minimum.'</b> when it is the current minimum, and <b>when it is</b>, print also if it is <b>divisible by 3</b>."
         },
         {

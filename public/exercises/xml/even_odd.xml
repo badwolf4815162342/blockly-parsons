@@ -61,7 +61,7 @@
         <field name="TEXT" editable="false" movable="false">abc</field>
       </shadow>
       <block type="text" id="|516-HK=?R6L7mIQokGb" editable="false" movable="false">
-        <field name="TEXT" editable="false" movable="false">Title:Read in number</field>
+        <field name="TEXT" editable="false" movable="false">Title: Read in number</field>
       </block>
     </value>
   </block>

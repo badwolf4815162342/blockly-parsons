@@ -146,9 +146,7 @@ function GetWorksPace(props) {
     <BlocklyWorkspace
       key={seed}
       className="blockly-workspace"
-    // toolboxConfiguration={toolboxCategories} // this must be a JSON toolbox definition
       initialXml={initialXml}
-  //  onXmlChange={setSubmittedXml}
       onWorkspaceChange={workspaceDidChange}
       workspaceConfiguration={{
         disable: false,

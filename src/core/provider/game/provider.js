@@ -9,7 +9,6 @@ export default function GameProvider({ children }) {
   const [javascriptCodeArray, setJavascriptCodeArray] = useState([]);
   const [isReloading, setIsReloading] = useState(false);
   const [token, setToken] = useState(0);
-  const [leagueId, setLeagueId] = useState(0);
   const [parson, setParsons] = useState();
   const [pythonNotJS, setPythonNotJS] = useState(true);
   const [pythonCodeString, setPythonCodeString] = useState('');
@@ -27,7 +26,6 @@ export default function GameProvider({ children }) {
       submittedXml,
       isReloading,
       token,
-      leagueId,
       parson,
       feedback,
       tries,
@@ -41,7 +39,6 @@ export default function GameProvider({ children }) {
       setSubmittedXml,
       setIsReloading,
       setToken,
-      setLeagueId,
       setParsons,
       setFeedback,
       setTries,
