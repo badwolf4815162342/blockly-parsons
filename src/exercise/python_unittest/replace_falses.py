@@ -4,19 +4,11 @@ from unittest.mock import patch
 import sys
 
 def method():
-    booleans = None
-    index = None
-    boolean = None
-    def text_prompt(msg):
-        try:
-            return raw_input(msg)
-        except NameError:
-            return input(msg)
-    booleans = text_prompt('Type in list of booleans.')
+    booleans = input('Type in list of booleans.')
     index = 0
     for boolean in booleans:
         if not boolean:
-            list2[int(index)] = True
+            booleans[int(index)] = True
     index = index + 1
     print(booleans)
 

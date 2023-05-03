@@ -4,25 +4,15 @@ from unittest.mock import patch
 import sys
 
 def method():
-    numbers = None
-    count = None
-    target = None
-    num = None
-    def text_prompt(msg):
-        try:
-            return raw_input(msg)
-        except NameError:
-            return input(msg)
-    numbers = text_prompt('Type in a list of numbers.')
-    count = 0
-    target = 3
-    for num in numbers:
-        if num == target:
-            count = count + 1
-    print('')
-    
+    booleans = input('Type in list of booleans.')
+    flag = True
+    for boolean in booleans:
+        if not boolean:
+            flag = False
+    print(flag)
+
 class myTests(unittest.TestCase):
-    @patch('builtins.input',side_effect=[[True,True,True]])
+    @patch('builtins.input',side_effect=[[True,True,False]])
     def testOne(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.
@@ -32,8 +22,8 @@ class myTests(unittest.TestCase):
         if (len(outputArray)>1):
             outputArray.pop()
         self.assertEqual(outputArray,
-           ['True'],)
-    @patch('builtins.input',side_effect=[[False,True,False,True,True]])
+           ['False'],)
+    @patch('builtins.input',side_effect=[[True,True,True,True,True]])
     def testTwo(self, input):
         capturedOutput = StringIO()          # Create StringIO object
         sys.stdout = capturedOutput                   #  and redirect stdout.
@@ -43,7 +33,7 @@ class myTests(unittest.TestCase):
         if (len(outputArray)>1):
             outputArray.pop()
         self.assertEqual(outputArray,
-           ['False'],)
+           ['True'],)
     
 tests = [myTests().testOne(),myTests().testTwo()]
 _test_result = tests[0]
